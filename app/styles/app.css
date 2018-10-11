@@ -246,3 +246,22 @@ a:hover {
   color: #fff;
   border-bottom-color: #fff;
 }
+
+.contactUS {
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  padding: 25px;
+  background-color: #6E6E6E;
+}
+
+#contact .card-ct:hover i,#contact .card-ct:hover h4 {
+  color: #87d37c;
+}
+
+.card-ct{
+ text-align: center;
+  color: #666666;
+  margin:30px;
+  display:block;
+}
