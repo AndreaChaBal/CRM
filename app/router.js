@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('home', {path: '/'});
   this.route('login');
   this.route('dashboard');
+  this.route('services');
 });
 
 export default Router;

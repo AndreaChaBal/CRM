@@ -1,7 +1,7 @@
-   html,
+html,
 body {
   height: 100%;
-  width:101%;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -12,6 +12,10 @@ body {
   padding-top: 0px;
   padding-bottom: 0px;
  
+}
+.login{
+  position: relative;
+  bottom:55px;
 }
 .login:before {
   content: '';
@@ -73,8 +77,6 @@ body {
 
 .navbar {
     background-color: #333;
-    overflow: hidden;
-    z-index:3;
 }
 
 /* Style the links inside the navigation bar */
@@ -115,7 +117,6 @@ ul {
 }
 
 .container-header{
-  position: relative;
   top:-45px;
   text-align: center;
   z-index: 2;
@@ -149,6 +150,7 @@ ul {
 .blue-card{
   background-color:#51bcda;
   color:white;
+  height:420px;
 }
 .blue-card img{
   width:300px;
@@ -225,7 +227,6 @@ a:hover {
 }
 
 .nav-masthead .nav-link {
-  padding: .25rem 0;
   font-weight: 700;
   color: rgba(255, 255, 255, .5);
   background-color: transparent;
@@ -244,18 +245,4 @@ a:hover {
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
-}
-
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
-}
-
-.navbar {
-  padding-left: 100px;
-  padding-right: 150px;
 }
