@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('services');
   this.route('contacto');
   this.route('profile');
+  this.route('clientdetails');
 });
 
 export default Router;
