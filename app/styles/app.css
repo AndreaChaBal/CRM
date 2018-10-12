@@ -241,6 +241,19 @@ a:hover {
 .table-user-information > tbody > tr > td {
     border-top: 0;
 }
+
+.table-potential-client tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-potential-client tbody > tr > th {
+  font-size: 20pt;
+}
+
+.table-potential-client tbody > tr > td {
+  font-size: 16pt;
+}
+
 .toppad
 {margin-top:20px;
 }

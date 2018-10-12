@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('contacto');
   this.route('profile');
   this.route('clientdetails');
+  this.route('potentialclient');
 });
 
 export default Router;
