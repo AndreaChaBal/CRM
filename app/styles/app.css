@@ -76,7 +76,9 @@ body {
 /* Navigation Bar*/
 
 .navbar {
-    background-color: #333;
+  background-color: #333;
+  height: 70px;
+  border-bottom: .25rem solid #00897B;
 }
 
 /* Style the links inside the navigation bar */
