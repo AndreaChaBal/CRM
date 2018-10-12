@@ -11,7 +11,7 @@ body {
   align-items: center;
   padding-top: 0px;
   padding-bottom: 0px;
- 
+
 }
 .login{
   position: relative;
@@ -168,7 +168,7 @@ h6{
   font-weight:900;
 }
 
-.btn-primary {  
+.btn-primary {
   color: #fff;
   background-color: #A9B4C2;
    border-color: #A9B4C2;
@@ -185,7 +185,7 @@ h6{
   font-size: 70px;
   box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
   border-radius: 50px;
-  width: 90%; 
+  width: 90%;
   color:#666666;
   font-weight: 900;
   text-align: center;
@@ -303,3 +303,9 @@ a:hover {
 .profile-panel{
   margin: 40px auto 0 auto;
 }
+
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+
