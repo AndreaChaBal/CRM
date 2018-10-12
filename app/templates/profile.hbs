@@ -1,0 +1,100 @@
+<div class="container">
+      <!--<div class="row">
+      <div>
+           <a href="edit.html" >Edit Profile</a>
+
+        <a href="edit.html" >Logout</a>
+       <br>
+<p class=" text-info">May 05,2014,03:00 pm </p>
+      </div>
+  </div>-->
+   <div class="row">
+   	<div class="span6 profile-panel" style="float: none;">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Oscar Lara</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Service hired:</td>
+                        <td>Service 1</td>
+                      </tr>
+                      <tr>
+                        <td>Last payment date:</td>
+                        <td>06/23/2013</td>
+                      </tr>
+                      <tr>
+                        <td>Date of Birth</td>
+                        <td>01/24/1988</td>
+                      </tr>
+                       <tr>
+                        <td>Gender</td>
+                        <td>Female</td>
+                      </tr>
+                        <tr>
+                        <td>Home Address</td>
+                        <td>Monterrey, Mexico</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a style="color: black" href="oscarlara@hotmail.com">oscarlara@hotmail.com</a></td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number</td>
+                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                        </td>
+                     </tr>
+                    </tbody>
+                  </table>
+                  <a href="#" class="btn btn-primary">See previous payments</a>
+                  <a href="#" class="btn btn-primary">Edit information</a>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+  </div>
+    {{outlet}}
+    <script>
+    	$(document).ready(function() {
+    var panels = $('.user-infos');
+    var panelsButton = $('.dropdown-user');
+    panels.hide();
+
+    //Click dropdown
+    panelsButton.click(function() {
+        //get data-for attribute
+        var dataFor = $(this).attr('data-for');
+        var idFor = $(dataFor);
+
+        //current button
+        var currentButton = $(this);
+        idFor.slideToggle(400, function() {
+            //Completed slidetoggle
+            if(idFor.is(':visible'))
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+            }
+            else
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+            }
+        })
+    });
+
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('button').click(function(e) {
+        e.preventDefault();
+        alert("This is a demo.\n :-)");
+    });
+});
+    </script>
+
+    {{outlet}}

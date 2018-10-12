@@ -11,7 +11,7 @@ body {
   align-items: center;
   padding-top: 0px;
   padding-bottom: 0px;
- 
+
 }
 .login{
   position: relative;
@@ -170,7 +170,7 @@ h6{
   font-weight:900;
 }
 
-.btn-primary {  
+.btn-primary {
   color: #fff;
   background-color: #A9B4C2;
    border-color: #A9B4C2;
@@ -187,7 +187,7 @@ h6{
   font-size: 70px;
   box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
   border-radius: 50px;
-  width: 90%; 
+  width: 90%;
   color:#666666;
   font-weight: 900;
   text-align: center;
@@ -248,3 +248,66 @@ a:hover {
   color: #fff;
   border-bottom-color: #fff;
 }
+
+.contactUS {
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  padding: 25px;
+  background-color: #6E6E6E;
+}
+
+#contact .card-ct:hover i,#contact .card-ct:hover h4 {
+  color: #87d37c;
+}
+
+.card-ct{
+ text-align: center;
+  color: #666666;
+  margin:30px;
+  display:block;
+}
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+
+.profile-panel{
+  margin: 40px auto 0 auto;
+}
+
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+

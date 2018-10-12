@@ -11,6 +11,9 @@ Router.map(function() {
   this.route('login');
   this.route('dashboard');
   this.route('services');
+  this.route('contacto');
+  this.route('profile');
+  this.route('clientdetails');
 });
 
 export default Router;
