@@ -10,7 +10,7 @@
     background-size: cover;">
   <form class="form-signin" style="background-color: #fff; margin-top: 40px; padding-top: 40px; padding-bottom: 40px;" action="indexweb.html">
     {{#if session.isAuthenticated}}
-      Logged in as {{session.currentUser.displayName}}
+      Logged in as {{session.currentUser.uid}}
       <button {{action "signOut"}}>Sign out</button>
       {{outlet}}
     {{else}}
@@ -20,10 +20,12 @@
       <h6 class="" style="margin:0px; color:#666; font-size:13px;">INGRESA TUS DATOS</h6></center>
     <br>
     <br>
+    <label for="inputName" class="sr-only">Full Name</label>
+    {{input type="text" id="inputUsername" class="form-control" placeholder="Nombre" value=username}}
     <label for="inputEmail" class="sr-only">Email</label>
-    {{input type="email" id="inputEmail" class="form-control" placeholder="Email" value=email}}
+    {{input type="email" id="inputEmail" class="form-control" placeholder="Email" value=user}}
     <label for="inputPassword" class="sr-only">Contraseña</label>
-    {{input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" value=password}}
+    {{input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" value=pass}}
     {{#if error}}
       <div class="alert alert-danger" role="alert">
         {{error}}
@@ -31,9 +33,10 @@
     {{/if}}
     <br>
     <br>
-    <button class="btn btn-lg btn-primary btn-block" type="button" style="font-size: 17px; font-weight: bold; padding:12px 0px;" {{action 'signIn' 'password' email password}}>Iniciar sesión</button>
-    <button onclick="location.href = 'signup';" class="btn btn-lg btn-primary btn-block" type="button" style="font-size: 17px; font-weight: bold; padding:12px 0px;">¿Aún no tienes cuenta?</button>
+    <button class="btn btn-lg btn-primary btn-block" type="button" style="font-size: 17px; font-weight: bold; padding:12px 0px;" {{action 'signUp' username user pass}}>Registrarme</button>
+    <button onclick="location.href = 'login';" class="btn btn-lg btn-primary btn-block" type="button" style="font-size: 17px; font-weight: bold; padding:12px 0px;">Ya tengo cuenta</button>
     {{/if}}
+    
   </form>
   <p class="" style="position: absolute; color:#fff; bottom:0px; left:47%;">© 2018</p>
 </div>

@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('profile');
   this.route('clientdetails');
   this.route('potentialclient');
+  this.route('signup');
 });
 
 export default Router;
