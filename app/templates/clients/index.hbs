@@ -1,1 +1,31 @@
-{{outlet}}
+<h2>Clientes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>ApellidoPaterno</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Ver</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each model as |client|}}
+
+                <tr>
+                    <td>{{client.nombre}}</td>
+                    <td>{{client.apellidoPaterno}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.telefono}}</td>
+                    <td>
+                        {{#link-to 'clients.edit' client.id}}Ver{{/link-to}}                    
+                    </td>
+                    <td>
+                        <button {{action 'deleteClient' client.id}} class="btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+
+        {{/each}}
+    </tbody>
+</table>

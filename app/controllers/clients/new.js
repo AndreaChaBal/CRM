@@ -6,6 +6,7 @@ export default Controller.extend({
             var nombre = this.get('nombre');
             var apellidoPaterno  = this.get('apellidoPaterno');
             var apellidoMaterno = this.get('apellidoMaterno');
+            var email = this.get('email');
             var telefono = this.get('telefono');
             var direccion = this.get('direccion');
             var colonia = this.get('colonia');
@@ -17,6 +18,7 @@ export default Controller.extend({
                 nombre: nombre,
                 apellidoPaterno : apellidoPaterno,
                 apellidoMaterno: apellidoMaterno,
+                email: email,
                 telefono: telefono,
                 direccion: direccion,
                 colonia: colonia,
@@ -31,6 +33,7 @@ export default Controller.extend({
                 nombre: '',
                 apellidoPaterno: '',
                 apellidoMaterno: '',
+                email: '',
                 telefono: '',
                 direccion: '',
                 colonia: '',

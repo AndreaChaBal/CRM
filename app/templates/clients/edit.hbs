@@ -1,1 +1,66 @@
-{{outlet}}
+<form>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Nombre</label>
+            {{input type="text" class="form-control" value=model.nombre}}
+        </div> 
+    </div>
+    <div class="form-group">
+       <div class="col-md-4 col-sm-4">
+            <label>Apellido paterno</label>
+            {{input type="text" class="form-control" value=model.apellidoPaterno}}
+        </div> 
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Apellido materno</label>
+            {{input type="text" class="form-control" value=model.apellidoMaterno}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Email</label>
+            {{input type="email" class="form-control" value=model.email}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Teléfono</label>
+            {{input type="text" class="form-control" value=model.telefono}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Dirección</label>
+            {{input type="text" class="form-control" value=model.direccion}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Colonia</label>
+            {{input type="text" class="form-control" value=model.colonia}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Localidad</label>
+            {{input type="text" class="form-control" value=model.localidad}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Municipio</label>
+            {{input type="text" class="form-control" value=model.municipio}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Recomendado</label>
+        <div class="radio">
+            <label><input type="radio" name="recomendado" checked>Sí</label>
+            <label><input type="radio" name="optradio">No</label>
+        </div>
+    </div>
+
+    <button {{action 'editClient' model.id}} class="btn btn-primary">Guardar</button>
+    <button class="btn btn-primary">Cancelar</button>
+</form>
