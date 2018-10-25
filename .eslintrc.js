@@ -17,7 +17,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-unused-vars': 'off',
-    'new-module-imports', "off"
+    'new-module-imports': "off"
   },
   overrides: [
     // node files

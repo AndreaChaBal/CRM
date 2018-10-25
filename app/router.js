@@ -16,6 +16,10 @@ Router.map(function() {
   this.route('clientdetails');
   this.route('potentialclient');
   this.route('signup');
+  this.route('clients', function() {
+    this.route('new');
+    this.route('edit');
+  });
 });
 
 export default Router;
