@@ -200,6 +200,17 @@ a:hover {
   background-color: #6E6E6E;
 }
 
+.DetallesC {
+  color:  #6E6E6E;
+  font-weight: 900;
+  text-align: left;
+  padding: 30px;
+  background-color: white;
+}
+
+.EmailD {
+  
+}
 #contact .card-ct:hover i,#contact .card-ct:hover h4 {
   color: #87d37c;
 }

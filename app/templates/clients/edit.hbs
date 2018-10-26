@@ -61,6 +61,11 @@
         </div>
     </div>
 
-    <button {{action 'editClient' model.id}} class="btn btn-primary">Guardar</button>
-    <button class="btn btn-primary">Cancelar</button>
+    {{#link-to 'clients'}}
+        <button {{action 'editClient' model.id}} class="btn btn-primary">Guardar</button>
+    {{/link-to}}
+    {{#link-to 'clients'}}
+	    <button class="btn btn-primary">Cancelar</button>
+    {{/link-to}}
+
 </form>
