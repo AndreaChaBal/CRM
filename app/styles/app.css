@@ -312,4 +312,10 @@ a:hover {
   border: #00897B !important;
 }
 
+th {
+  text-align: center;
+}
 
+tr{
+  text-align: center;
+}
