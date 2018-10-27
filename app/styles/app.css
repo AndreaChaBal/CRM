@@ -160,7 +160,7 @@ h6{
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #6E6E6E;
 }
 
 .masthead {
@@ -209,7 +209,7 @@ a:hover {
 }
 
 .EmailD {
-  
+
 }
 #contact .card-ct:hover i,#contact .card-ct:hover h4 {
   color: #87d37c;
@@ -301,7 +301,7 @@ a:hover {
   margin-bottom: 10px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-} 
+}
 .form-control:focus{
 	border-color: #00897b;
   outline: 0;
@@ -311,6 +311,7 @@ a:hover {
   background-color:#00897B !important;
   border: #00897B !important;
 }
+<<<<<<< HEAD
 
 th {
   text-align: center;
@@ -319,3 +320,5 @@ th {
 tr{
   text-align: center;
 }
+=======
+>>>>>>> 744be5f372d13addd6d446b43da91c80720d1899
