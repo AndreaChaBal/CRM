@@ -1,0 +1,118 @@
+<div class="container">
+      <!--<div class="row">
+      <div>
+           <a href="edit.html" >Edit Profile</a>
+
+        <a href="edit.html" >Logout</a>
+       <br>
+<p class=" text-info">May 05,2014,03:00 pm </p>
+      </div>
+  </div>-->
+   <div class="row">
+   	<div class="span6 profile-panel" style="float: none;">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Potential Clients</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div> 
+                  <table class="table table-potential-client">
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Service</th>
+                      </tr>
+                      <tr>
+                        <td>Name1</td>
+                        <td>8100000</td>        
+                        <td>abc@gmail.com</td>
+                        <td>servicio1</td>
+                      </tr>
+                      <tr>
+                      	<td>Name2</td>
+                        <td>8100000</td>    
+                        <td>abc@gmail.com</td>
+                        <td>servicio4</td>
+                      </tr>
+                      <tr>
+                       	<td>Name3</td>
+                        <td>8100000</td>        
+                        <td>abc@gmail.com</td>
+                        <td>servicio1</td>
+                      </tr>
+                       <tr>
+                        <td>Name4</td>
+                        <td>8100000</td>   
+                        <td>abc@gmail.com</td>
+                        <td>servicio2</td>
+                      </tr>
+                      <tr>
+                        <td>Name5</td>
+                        <td>8100000</td>   
+                        <td>abc@gmail.com</td>
+                        <td>servicio3</td>
+                      </tr>
+                      <tr>
+                        <td>Name6</td>
+                        <td>8100000</td>   
+                        <td>abc@gmail.com</td>
+                        <td>servicio3</td>
+                      </tr>
+                      <tr>
+                        <td>Name7</td>
+                        <td>8100000</td>   
+                        <td>abc@gmail.com</td>
+                        <td>servicio2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a href="#" class="btn btn-primary">OK</a>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+  </div>
+    {{outlet}}
+    <script>
+    	$(document).ready(function() {
+    var panels = $('.user-infos');
+    var panelsButton = $('.dropdown-user');
+    panels.hide();
+
+    //Click dropdown
+    panelsButton.click(function() {
+        //get data-for attribute
+        var dataFor = $(this).attr('data-for');
+        var idFor = $(dataFor);
+
+        //current button
+        var currentButton = $(this);
+        idFor.slideToggle(400, function() {
+            //Completed slidetoggle
+            if(idFor.is(':visible'))
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+            }
+            else
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+            }
+        })
+    });
+
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('button').click(function(e) {
+        e.preventDefault();
+        alert("This is a demo.\n :-)");
+    });
+});
+    </script>
+
+    {{outlet}}

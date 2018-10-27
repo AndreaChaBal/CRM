@@ -27,7 +27,9 @@
                     <td>{{client.email}}</td>
                     <td>{{client.telefono}}</td>
                     <td>
-                        {{#link-to 'clients.edit' client.id}}Ver{{/link-to}}                    
+                        {{#link-to 'clients.edit' client.id}}
+                            <button class="btn-info">Ver</button>
+                        {{/link-to}}                    
                     </td>
                     <td>
                         <button {{action 'deleteClient' client.id}} class="btn-danger">Eliminar</button>
