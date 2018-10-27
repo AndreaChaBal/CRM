@@ -1,0 +1,25 @@
+<form>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Fecha</label>
+            {{input type="date" class="form-control" value=model.fecha required=true}}
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <label>Cantidad</label>
+            {{input type="text" class="form-control" value=model.cantidad required=true}}
+        </div>  
+        <div class="col-md-4 col-sm-4">
+            <label>Concepto</label>
+            {{input type="text" class="form-control" value=model.concepto required=true}}
+        </div> 
+    </div>
+
+
+    {{#link-to 'payments'}}
+        <button {{action 'editPayment'}} class="btn btn-primary">Guardar</button>
+    {{/link-to}}
+    {{#link-to 'payments'}}
+	    <button class="btn btn-primary">Cancelar</button>
+    {{/link-to}}
+
+</form>

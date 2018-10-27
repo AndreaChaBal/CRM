@@ -24,8 +24,8 @@ export default Controller.extend({
                 client.set('telefono', telefono);
                 client.set('direccion', direccion);
                 client.set('colonia', colonia);
-                client.set('colonia', localidad);
-                client.set('colonia', municipio);
+                client.set('localidad', localidad);
+                client.set('municipio', municipio);
 
                 client.save();
 

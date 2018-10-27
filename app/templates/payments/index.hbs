@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Pagos</h1>
+</div>
+{{#link-to 'payments.new'}}
+    <button class="btn btn-primary"><i class="fas fa-plus-square"></i> Agregar pago</button>
+{{/link-to}}
+<br>
+<br>
+<table id="table_id" class="table">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Concepto</th>
+            <th>Ver</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each model as |payment|}}
+
+                <tr>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>{{payment.cantidad}}</td>
+                    <td>{{payment.concepto}}</td>
+                    <td>
+                        {{#link-to 'payments.edit' payment.id}}Ver{{/link-to}}                    
+                    </td>
+                    <td>
+                        <button {{action 'deletePayment' payment.id}} class="btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+
+        {{/each}}
+    </tbody>
+</table>
+

@@ -20,6 +20,11 @@ Router.map(function() {
     this.route('new');
     this.route('edit', {path: '/edit/:client_id'});
   });
+
+  this.route('payments', function() {
+    this.route('new');
+    this.route('edit');
+  });
 });
 
 export default Router;
