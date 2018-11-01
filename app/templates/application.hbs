@@ -9,7 +9,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  {{nav-bar}}
+  <div class="navbar">
+	<a href="{{rootURL}}/"><img class="masthead-brand" src="assets/LOGOMIN.png" alt="Home" width="91" height="25" border="0"></a>
+	<nav class="nav nav-masthead justify-content-center">
+	<a class="nav-link" href="{{rootURL}}services">Servicios</a>
+	<a class="nav-link" href="{{rootURL}}contacto">Contacto</a>
+	{{#if session.isAuthenticated}}
+     Logged in as {{session.currentUser.displayName}}
+      <a class="nav-link" href="{{rootURL}}login" {{action "signOut" preventDefault=false}}>Logout</a>
+      {{else}}
+      Logged in as no one {{session.currentUser.displayName}}
+      <a class="nav-link" href="{{rootURL}}login">Login</a>
+      {{/if}}
+	</nav>
+</div>
   {{outlet}}
 </body>
 </html>
