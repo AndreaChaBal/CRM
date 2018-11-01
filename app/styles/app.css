@@ -311,3 +311,11 @@ a:hover {
   background-color:#00897B !important;
   border: #00897B !important;
 }
+
+th {
+  text-align: center;
+}
+
+tr{
+  text-align: center;
+}

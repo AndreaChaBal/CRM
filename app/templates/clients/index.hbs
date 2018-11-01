@@ -1,42 +1,70 @@
-    
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Clientes</h1>
+<div class="contenedor-principal" style="margin: 20px 50px">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Clientes</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            {{#link-to 'clients.new'}}
+                <button class="btn btn-primary"><i class="fas fa-plus-square"></i> Agregar cliente</button>
+            {{/link-to}}
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <input class="form-control" id="input-search" type="text" placeholder="Buscar">
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>ApellidoPaterno</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Realizar pago</th>
+                <th>Ver</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody id="table-id">
+            {{#each model as |client|}}
+
+                    <tr>
+                        <td>{{client.nombre}}</td>
+                        <td>{{client.apellidoPaterno}}</td>
+                        <td>{{client.email}}</td>
+                        <td>{{client.telefono}}</td>
+                        <td>
+                            {{#link-to 'payments.new'}}
+                                <button class="btn-success">Pagar</button>
+                            {{/link-to}}                    
+                        </td>
+                        <td>
+                            {{#link-to 'clients.edit' client.id}}
+                                <button class="btn-info">Ver</button>
+                            {{/link-to}}                    
+                        </td>
+                        <td>
+                            <button {{action 'deleteClient' client.id}} class="btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            $("#input-search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#table-id tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
 </div>
-{{#link-to 'clients.new'}}
-    <button class="btn btn-primary"><i class="fas fa-plus-square"></i> Agregar cliente</button>
-{{/link-to}}
-<br>
-<br>
-<table id="table_id" class="table">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>ApellidoPaterno</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Ver</th>
-            <th>Eliminar</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each model as |client|}}
-
-                <tr>
-                    <td>{{client.nombre}}</td>
-                    <td>{{client.apellidoPaterno}}</td>
-                    <td>{{client.email}}</td>
-                    <td>{{client.telefono}}</td>
-                    <td>
-                        {{#link-to 'clients.edit' client.id}}
-                            <button class="btn-info">Ver</button>
-                        {{/link-to}}                    
-                    </td>
-                    <td>
-                        <button {{action 'deleteClient' client.id}} class="btn-danger">Eliminar</button>
-                    </td>
-                </tr>
-
-        {{/each}}
-    </tbody>
-</table>
-
