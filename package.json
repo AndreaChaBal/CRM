@@ -52,6 +52,8 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^7.28.11"
   }
 }
