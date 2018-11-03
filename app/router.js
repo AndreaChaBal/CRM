@@ -22,7 +22,7 @@ Router.map(function() {
   });
 
   this.route('payments', function() {
-    this.route('new');
+    this.route('new', {path: '/:client_id'});
     this.route('edit');
   });
 });
