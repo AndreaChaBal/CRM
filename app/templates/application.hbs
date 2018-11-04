@@ -15,10 +15,9 @@
 	<a class="nav-link" href="{{rootURL}}services">Servicios</a>
 	<a class="nav-link" href="{{rootURL}}contacto">Contacto</a>
 	{{#if session.isAuthenticated}}
-     Logged in as {{session.currentUser.displayName}}
+     <span style="color:white;">Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</span>
       <a class="nav-link" href="{{rootURL}}login" {{action "signOut" preventDefault=false}}>Logout</a>
       {{else}}
-      Logged in as no one {{session.currentUser.displayName}}
       <a class="nav-link" href="{{rootURL}}login">Login</a>
       {{/if}}
 	</nav>
