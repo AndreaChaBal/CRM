@@ -7,11 +7,11 @@
 
     <div class="col-md-4 col-sm-4">
       <div class="card-dashboard" style="border-color: #ffff84">
-      <div class="box">
+      <div class="box" {{action "toCreate" preventDefault=false}}>
         <i class="material-icons" style="font-size: 70px; color: #ffff84">people</i>
         <div class="card-body">
           <h5 class="card-title">
-            <a href="{{rootURL}}clients" class="card-link">Crear nuevo cliente</a>
+            Crear nuevo cliente
           </h5>
         </div>
       </div>
@@ -20,7 +20,7 @@
 
     <div class="col-md-4 col-sm-4">
       <div class="card-dashboard" style="border-color: #5ff4eb">
-      <div class="box">
+      <div class="box" {{action "toList" preventDefault=false}}>
         <i class="material-icons" style="font-size: 70px; color: #5ff4eb">people</i>
         <div class="card-body">
           <h5 class="card-title">Lista de clientes</h5>
