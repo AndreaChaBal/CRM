@@ -10,6 +10,7 @@ export default DS.Model.extend({
     colonia: DS.attr('string'),
     localidad: DS.attr('string'),
     municipio: DS.attr('string'),
-    isAdmin: DS.attr('boolean')
+    isAdmin: DS.attr('boolean'),
+    pagos: DS.hasMany('payment'),
     //recomendado: DS.attr('boolean'),
 });

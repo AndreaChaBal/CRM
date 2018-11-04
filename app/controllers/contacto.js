@@ -5,8 +5,8 @@ export default Controller.extend({
 	 	cargarInf : function(){
 	 		var self = this;
 	 		var telefono = this.get(model.telefono);
-	 		var email = this.get(model.email);
 	 		var calle = this.get(model.calle);
+            var email = this.get(model.email);
 	 	}
 	 }
 });

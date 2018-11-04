@@ -5,13 +5,14 @@
 
 <section id="contact">
   <div class="row">
-  
     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
      <div class="card-ct border-0">
        <div class="card-body text-center">
         <i class="fa fa-phone fa-5x mb-3" aria-hidden="true"></i>
          <h4 class="text-uppercase mb-5">Llámanos</h4>
-         <p>{{model.telefono}}</p>
+         {{#each model as |contacto|}}
+         <p>{{contacto.telefono}}</p>
+         {{/each}}
       </div>
       </div>
     </div>
@@ -21,7 +22,9 @@
         <div class="card-body text-center">
           <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true" ></i>
             <h4 class="text-uppercase mb-5">Ubicación</h4>
-            <address>{{model.calle}}</address>
+            {{#each model as |contacto|}}
+            <address>{{contacto.calle}}</address>
+            {{/each}}
         </div>
        </div>
     </div>
@@ -31,7 +34,9 @@
         <div class="card-body text-center">
           <i class="fa fa-globe fa-5x mb-3" aria-hidden="true"></i>
             <h4 class="text-uppercase mb-5">Email</h4>
-            <p>{{model.email}}</p>
+            {{#each model as |contacto|}}
+            <p>{{contacto.email}}</p>
+            {{/each}}
          </div>
         </div>
   </div>

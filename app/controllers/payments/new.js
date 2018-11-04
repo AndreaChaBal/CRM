@@ -1,18 +1,22 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+    NoEditable: true,
+
     actions: {
         addPayment: function(){
+            var self = this;
+
             var fecha = this.get('fecha');
             var cantidad = this.get('cantidad');
             var concepto = this.get('concepto');
-            //var pago = this.get('pago');
+            var cliente = this.get('model.id');
 
             var newPayment = this.store.createRecord('payment', {
                 fecha: fecha,
                 cantidad: cantidad,
                 concepto: concepto,
-                //pago: pago,
+                cliente: cliente,
             })
 
             newPayment.save();
@@ -21,8 +25,9 @@ export default Controller.extend({
                 fecha: '',
                 cantidad: '',
                 concepto: '',
-                //pago: '',
+                cliente: '',
             })
         }
     }
+
 });

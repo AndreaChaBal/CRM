@@ -1,16 +1,32 @@
 <form>
     <div class="form-group">
+
+        <div class="row">
+            <div class="col s6">
+                <label>Nombre: </label>
+                {{input id="nombre" disabled=NoEditable value=model.nombre}}
+            </div>
+            <div class="col s6">
+                <label>Apellido Paterno: </label>
+                {{input id="apellidoPaterno" disabled=NoEditable value=model.apellidoPaterno}}
+            </div>
+            <div class="col s6">
+                <label>Apellido Materno: </label>
+                {{input id="apellidoPaterno" disabled=NoEditable value=model.apellidoMaterno}}
+            </div>
+        </div>
+
         <div class="col-md-4 col-sm-4">
             <label>Fecha</label>
-            {{input type="date" class="form-control" value=fecha required=true}}
+            {{input type="date" class="form-control" value=fecha}}
         </div>
         <div class="col-md-4 col-sm-4">
             <label>Cantidad</label>
-            {{input type="text" class="form-control" value=cantidad required=true}}
+            {{input type="text" class="form-control" value=cantidad}}
         </div>  
         <div class="col-md-4 col-sm-4">
             <label>Concepto</label>
-            {{input type="text" class="form-control" value=concepto required=true}}
+            {{input type="text" class="form-control" value=concepto}}
         </div> 
     </div>
 
@@ -18,7 +34,7 @@
     {{#link-to 'payments'}}
         <button {{action 'addPayment' model.id}} class="btn btn-primary">Guardar</button>
     {{/link-to}}
-    {{#link-to 'payments'}}
+    {{#link-to 'clients'}}
 	    <button class="btn btn-primary">Cancelar</button>
     {{/link-to}}
 
