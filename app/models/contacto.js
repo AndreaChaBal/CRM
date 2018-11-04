@@ -8,5 +8,4 @@ export default DS.Model.extend({
 	colonia: DS.attr('string'),
 	municipio: DS.attr('string'),
 	numero: DS.attr('string'),
-
 });

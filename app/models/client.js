@@ -11,6 +11,6 @@ export default DS.Model.extend({
     localidad: DS.attr('string'),
     municipio: DS.attr('string'),
     isAdmin: DS.attr('boolean'),
-    pagos: DS.hasMany('payment'),
+    pagos: DS.hasMany('payment', { async: true, inverse: null }),
     //recomendado: DS.attr('boolean'),
 });

@@ -4,10 +4,10 @@ export default Controller.extend({
     NoEditable: true,
 
     actions: {
-        addPayment: function(){
+        addPayment: function(cliente){
             var self = this;
 
-            var fecha = this.get('fecha');
+            var fecha = new Date();
             var cantidad = this.get('cantidad');
             var concepto = this.get('concepto');
             var cliente = this.get('model.id');
@@ -18,15 +18,15 @@ export default Controller.extend({
                 concepto: concepto,
                 cliente: cliente,
             })
-
+            
             newPayment.save();
 
-            this.setProperties({
-                fecha: '',
-                cantidad: '',
-                concepto: '',
-                cliente: '',
-            })
+            //var cliente = this.get('cliente');
+            //cliente.get('pagos').addObject(newPayment);
+              
+            //newPayment.save().then(function() {
+            //    return cliente.save();
+            //});
         }
     }
 
