@@ -53,10 +53,6 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-<<<<<<< HEAD
-    "sweetalert": "^2.1.2",
-=======
->>>>>>> 7cb14afebc19e285725d1ee48a93b3fec0e57261
     "sweetalert2": "^7.28.11"
   }
 }
