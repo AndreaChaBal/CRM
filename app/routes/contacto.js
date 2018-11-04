@@ -1,4 +1,7 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default Ember.Route.extend({
+	model() {  
+        return this.store.findAll('contacto');
+}
 });

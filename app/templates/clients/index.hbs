@@ -38,13 +38,13 @@
                         <td>{{client.email}}</td>
                         <td>{{client.telefono}}</td>
                         <td>
-                            {{#link-to 'payments.new'}}
+                            {{#link-to 'payments.new' client.id}}
                                 <button class="btn-success">Pagar</button>
                             {{/link-to}}                    
                         </td>
                         <td>
                             {{#link-to 'clients.edit' client.id}}
-                                <button class="btn-info">Ver</button>
+                                <button class="btn-info">Editar</button>
                             {{/link-to}}                    
                         </td>
                         <td>
