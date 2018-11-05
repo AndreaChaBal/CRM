@@ -1,0 +1,35 @@
+<form>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Nombre Completo</label>
+            {{input type="text" class="form-control" value=nombre}}
+        </div> 
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Teléfono</label>
+            {{input type="text" class="form-control" value=telefono}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Dirección</label>
+            {{input type="text" class="form-control" value=direccion}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+            <label>Email</label>
+            {{input type="text" class="form-control" value=email}}
+        </div>
+    </div>
+
+    {{#link-to 'clients'}}
+        <button {{action 'sendEmail' email nombre telefono direccion}} class="btn btn-primary">Agendar</button>
+    {{/link-to}}
+    {{#link-to 'clients'}}
+	    <button class="btn btn-primary">Cancelar</button>
+    {{/link-to}}
+
+</form>

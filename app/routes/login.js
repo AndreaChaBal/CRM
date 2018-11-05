@@ -5,10 +5,9 @@ export default Route.extend({
     var objTemp =this.get('user').get('currentUser');
     if (objTemp){
       setTimeout(function()
-    {
-        console.log(objTemp.uname);
-    }, 500);
+      {
+          console.log(objTemp.uname);
+      }, 500);
     }
-     
   }
 });
