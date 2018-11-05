@@ -4,5 +4,6 @@ export default DS.Model.extend({
     fecha: DS.attr('date'),
     cantidad: DS.attr('number'),
     concepto: DS.attr('string'),
-    cliente: DS.belongsTo('client'),
+    client: DS.belongsTo('client')
+    //cliente: DS.attr('string'),
 });

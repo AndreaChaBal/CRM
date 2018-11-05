@@ -4,22 +4,29 @@ export default Controller.extend({
     NoEditable: true,
 
     actions: {
-        addPayment: function(cliente){
+        addPayment: function(){
             var self = this;
 
             var fecha = new Date();
             var cantidad = this.get('cantidad');
             var concepto = this.get('concepto');
-            var cliente = this.get('model.id');
+            var cliente2 = this.get('model.id');
+
+            let myClient = this.store.peekRecord('client', cliente2);
 
             var newPayment = this.store.createRecord('payment', {
                 fecha: fecha,
                 cantidad: cantidad,
                 concepto: concepto,
-                cliente: cliente,
-            })
+                cliente: myClient,
+            });
             
-            newPayment.save();
+            myClient.get('payments').pushObject(newPayment);
+
+
+            newPayment.save().then(function(){
+                myClient.save();   
+            });
 
             //var cliente = this.get('cliente');
             //cliente.get('pagos').addObject(newPayment);
