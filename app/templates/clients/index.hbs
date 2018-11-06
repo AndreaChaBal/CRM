@@ -25,6 +25,7 @@
                 <th>Email</th>
                 <th>Teléfono</th>
                 <th>Realizar pago</th>
+                <th>Ver pagos</th>
                 <th>Ver</th>
                 <th>Eliminar</th>
             </tr>
@@ -40,6 +41,11 @@
                         <td>
                             {{#link-to 'payments.new' client.id}}
                                 <button class="btn-success">Pagar</button>
+                            {{/link-to}}                    
+                        </td>
+                        <td>
+                            {{#link-to 'clients.payments' client.id}}
+                                <button class="btn-success">Ver pago</button>
                             {{/link-to}}                    
                         </td>
                         <td>

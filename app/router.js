@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('clients', function() {
     this.route('new');
     this.route('edit', {path: '/edit/:client_id'});
+    this.route('payments', {path: '/:client_id'});
   });
 
   this.route('payments', function() {
