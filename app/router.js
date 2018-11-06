@@ -12,7 +12,9 @@ Router.map(function() {
   this.route('dashboard');
   this.route('services');
   this.route('contacto');
-  this.route('profile');
+  this.route('profile', function() {
+    this.route('payments');
+  });
   this.route('clientdetails');
   this.route('potentialclient');
   this.route('signup');

@@ -52,7 +52,7 @@ export default Ember.Route.extend({
         console.log(client);
         Ember.set(self.get('loggedStatus'), 'loggedAs', client.nombre + " "+ client.apellidoPaterno);
         Ember.set(self.get('loggedStatus'), 'loggedPerm', "client");
-            self.transitionTo('clients');
+            self.transitionTo('profile');
             }).catch(function(error){
           console.log("Does not exist");
       });

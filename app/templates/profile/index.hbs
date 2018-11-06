@@ -1,0 +1,80 @@
+<div class="container">
+   <div class="row">
+    <div class="span6 profile-panel" style="float: none;">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{model.nombre}} {{model.apellidoPaterno}} {{model.apellidoMaterno}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Servicio contratado:</td>
+                        <td>TBD</td>
+                      </tr>
+                      <tr>
+                        <td>Last payment date:</td>
+                        <td>TBD</td>
+                      </tr>
+                        <tr>
+                        <td>Direccion</td>
+                        <td>{{model.direccion}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a style="color: black">{{model.email}}</a></td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number</td>
+                        <td>{{model.telefono}}</td>
+                     </tr>
+                    </tbody>
+                  </table>
+                  {{#link-to 'profile.payments'}}
+                  <button class="btn btn-primary">Ver pagos anteriores</button>
+                  {{/link-to}}
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+  </div>
+    <script>
+        $(document).ready(function() {
+    var panels = $('.user-infos');
+    var panelsButton = $('.dropdown-user');
+    panels.hide();
+
+    //Click dropdown
+    panelsButton.click(function() {
+        //get data-for attribute
+        var dataFor = $(this).attr('data-for');
+        var idFor = $(dataFor);
+
+        //current button
+        var currentButton = $(this);
+        idFor.slideToggle(400, function() {
+            //Completed slidetoggle
+            if(idFor.is(':visible'))
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+            }
+            else
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+            }
+        })
+    });
+
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('button').click(function(e) {
+        e.preventDefault();
+        alert("This is a demo.\n :-)");
+    });
+});
+    </script>
