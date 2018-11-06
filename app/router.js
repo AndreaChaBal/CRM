@@ -26,6 +26,7 @@ Router.map(function() {
     this.route('new', {path: '/:client_id'});
     this.route('edit');
   });
+  this.route('appointment');
 });
 
 export default Router;

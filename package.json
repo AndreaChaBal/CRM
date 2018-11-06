@@ -44,7 +44,9 @@
     "ember-welcome-page": "^3.0.0",
     "emberfire": "^2.0.10",
     "eslint-plugin-ember": "^5.0.0",
+    "glob": "^4.5.3",
     "loader.js": "^4.2.3",
+    "morgan": "^1.9.1",
     "qunit-dom": "^0.6.2",
     "torii": "^0.10.1"
   },
@@ -52,7 +54,11 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "bootstrap": "^3.3.7",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "nodemailer": "^4.6.8",
     "sweetalert2": "^7.28.11"
   }
 }
