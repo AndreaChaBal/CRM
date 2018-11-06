@@ -24,7 +24,7 @@
                 <th>ApellidoPaterno</th>
                 <th>Email</th>
                 <th>Teléfono</th>
-                <th>Realizar pago</th>
+                <!--<th>Realizar pago</th>-->
                 <th>Ver pagos</th>
                 <th>Ver</th>
                 <th>Eliminar</th>
@@ -38,11 +38,11 @@
                         <td>{{client.apellidoPaterno}}</td>
                         <td>{{client.email}}</td>
                         <td>{{client.telefono}}</td>
-                        <td>
+                       <!-- <td>
                             {{#link-to 'payments.new' client.id}}
                                 <button class="btn-success">Pagar</button>
                             {{/link-to}}                    
-                        </td>
+                        </td>-->
                         <td>
                             {{#link-to 'clients.payments' client.id}}
                                 <button class="btn-success">Ver pago</button>
