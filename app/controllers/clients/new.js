@@ -10,7 +10,16 @@ var secondaryApp = firebase.initializeApp(config, "Secondary");
 
     const auth = secondaryApp.auth();
 export default Controller.extend({
+
+    servicioContratado: null,
     actions: {
+        
+        updateValue: function(value){
+            //this.set('service.id', value);
+            this.set('servicioContratado', value);
+            console.log(value);
+        },
+        
         addClient: function(){
             var nombre = this.get('nombre');
             var apellidoPaterno  = this.get('apellidoPaterno');
@@ -22,10 +31,18 @@ export default Controller.extend({
             var localidad = this.get('localidad');
             var municipio = this.get('municipio');
             var password = this.get('password');
+            var servicio = this.get('servicioContratado');
+            var fechaInstalacion = this.get('date');
+            
+            var hora = this.get('time');
+            console.log(hora);
+
+            var self = this;
             //var recomendado = this.get('recomendado');
             auth.createUserWithEmailAndPassword(email, password)
         .then((userResponse)=>{
-                this.store.createRecord('client', {
+            let myService = self.store.peekRecord('service', this.get('servicioContratado'));
+            var newClient = self.store.createRecord('client', {
                     nombre: nombre,
                     apellidoPaterno : apellidoPaterno,
                     apellidoMaterno: apellidoMaterno,
@@ -35,9 +52,14 @@ export default Controller.extend({
                     colonia: colonia,
                     localidad: localidad,
                     municipio: municipio,
-                    id: userResponse.uid
+                    id: userResponse.uid,
+                    service: servicio,
+                    fechaInstalacion: new Date(fechaInstalacion),
                     //recomendado: recomendado,
-                }).save().then(()=>{
+                });
+                myService.get('clients').pushObject(newClient);
+                newClient.save().then(()=>{
+                    myService.save();
                     window.swal({
                      title: 'Listo!',
                      text: 'Cliente creado correctamente.',

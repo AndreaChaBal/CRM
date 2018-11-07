@@ -1,8 +1,13 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-	user: Ember.inject.service(),
-	afterModel:function() {
+  user: Ember.inject.service(),
+
+  model: function() {
+    return this.store.findAll('service');
+  },
+
+	afterModel: function() {
     var objTemp =this.get('user').get('currentUser');
     var self = this;
     if (objTemp){

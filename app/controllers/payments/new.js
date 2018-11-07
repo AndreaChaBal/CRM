@@ -1,14 +1,16 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-    NoEditable: true,
+    //NoEditable: true,
+
+
 
     actions: {
         addPayment: function(){
             var self = this;
 
             var fecha = new Date();
-            var cantidad = this.get('cantidad');
+            var cantidad = this.get('model.service.precio');
             var concepto = this.get('concepto');
             var cliente2 = this.get('model.id');
 

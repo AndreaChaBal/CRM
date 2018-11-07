@@ -1,40 +1,45 @@
-<form>
-    <div class="form-group">
+<div class="contenedor-principal" style="margin: 20px 50px">
+    <form>
+        <div class="form-group">
 
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h4>Agregar Pago</h4>
+            </div>
+
             <div class="row">
-                <div class="col s4">
+                <div class="col-md-3 col-sm-3">
                     <h5>Nombre: {{model.nombre}}</h5>
                 </div>
-                <div class="col s4">
+                <div class="col-md-3 col-sm-3">
                     <h5>Apellido Paterno: {{model.apellidoPaterno}}</h5>
                 </div>
-                <div class="col s4">
+                <div class="col-md-3 col-sm-3">
                     <h5>Apellido Materno: {{model.apellidoMaterno}}</h5>
                 </div>
+                <div class="col-md-3 col-sm-3">
+                </div>
             </div>
+
+            <div></div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <label>Servicio: {{model.service.nombre}}</label>
+                </div>  
+                <div class="col-md-4 col-sm-4">
+                    <label>Cantidad: {{model.service.precio}}</label>
+                </div>
+            </div>
+
         </div>
 
-        <div class="col-md-4 col-sm-4">
-            <label>Fecha</label>
-            {{input type="date" class="form-control" value=fecha}}
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <label>Cantidad</label>
-            {{input type="text" class="form-control" value=cantidad}}
-        </div>  
-        <div class="col-md-4 col-sm-4">
-            <label>Concepto</label>
-            {{input type="text" class="form-control" value=concepto}}
-        </div> 
-    </div>
 
+        {{#link-to 'clients.payments'}}
+            <button {{action 'addPayment'}} class="btn btn-primary">Guardar</button>
+        {{/link-to}}
+        {{#link-to 'clients'}}
+            <button class="btn btn-primary">Cancelar</button>
+        {{/link-to}}
 
-    {{#link-to 'clients.payments'}}
-        <button {{action 'addPayment'}} class="btn btn-primary">Guardar</button>
-    {{/link-to}}
-    {{#link-to 'clients'}}
-	    <button class="btn btn-primary">Cancelar</button>
-    {{/link-to}}
-
-</form>
+    </form>
+</div>
