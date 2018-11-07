@@ -32,6 +32,9 @@ export default Route.extend({
     },
     toInstallations: function(){
       this.transitionTo('installations');
-    }
+    },
+    toPayments: function(){
+      this.transitionTo('payments');
+    },
   }
 });

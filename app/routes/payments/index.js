@@ -9,6 +9,6 @@ export default Route.extend({
       });
     },
     model(){
-      return this.store.findAll('client')
+      return this.store.findAll('payment')
     },
 });

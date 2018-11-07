@@ -8,7 +8,7 @@ export default Route.extend({
       }
     });
   },
-    model(){
+  model(){
 		return this.store.findAll('client')
 	},
 	user: Ember.inject.service(),

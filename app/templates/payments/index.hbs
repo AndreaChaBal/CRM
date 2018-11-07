@@ -29,14 +29,14 @@
             </tr>
         </thead>
         <tbody id="table-id">
-            {{#each model as |client|}}
+            {{#each model as |payment|}}
 
                     <tr>
-                        <td>{{client.nombre}}</td>
-                        <td>{{client.apellidoPaterno}}</td>
-                        <td>{{client.apellidoMaterno}}</td>
-                            <td>{{format-date payment.fecha}}</td>
-                            <td>{{payment.concepto}}</td>
+                        <td>{{payment.client.nombre}}</td>
+                        <td>{{payment.client.apellidoPaterno}}</td>
+                        <td>{{payment.client.apellidoMaterno}}</td>
+                        <td>{{format-date payment.fecha}}</td>
+                        <td>{{payment.concepto}}</td>
                     </tr>
 
             {{/each}}
