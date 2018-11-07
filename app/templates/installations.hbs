@@ -2,6 +2,11 @@
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Fechas de instalación</h1>
+        <div class="button-container">
+            {{#link-to 'dashboard'}}
+                <button class="btn btn-primary myButton"><i class="fas fa-arrow-left"></i> Volver al dashboard</button>
+            {{/link-to}}
+        </div>
     </div>
 
     <br>
@@ -19,7 +24,7 @@
 
                     <tr>
                         <td>{{client.nombre}} {{client.apellidoPaterno}} {{client.apellidoMaterno}}</td>
-                        <td>{{client.fechaInstalacion}}</td>
+                        <td>{{format-date client.fechaInstalacion}}</td>
                         <td>{{client.horaInstalacion}}</td>
                     </tr>
 

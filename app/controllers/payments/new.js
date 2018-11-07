@@ -1,17 +1,19 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-    //NoEditable: true,
     actions: {
+        updateValue: function(value){
+            this.set('concepto', value);
+        },
         addPayment: function(){
             var self = this;
 
             var fecha = new Date();
             var cantidad = this.get('model.service.precio');
             var concepto = this.get('concepto');
-            var cliente2 = this.get('model.id');
+            var cliente = this.get('model.id');
 
-            let myClient = this.store.peekRecord('client', cliente2);
+            let myClient = this.store.peekRecord('client', cliente);
 
             var newPayment = this.store.createRecord('payment', {
                 fecha: fecha,

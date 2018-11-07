@@ -2,23 +2,26 @@
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Pagos</h1>
-        <h5>Cliente: {{model.nombre}} {{model.apellidoPaterno}} {{model.apellidoMaterno}}</h5>
+        <div class="button-container">
+            {{#link-to 'clients'}}
+                <button class="btn btn-primary myButton"><i class="fas fa-arrow-circle-left"></i> Regresar</button>
+            {{/link-to}}
+            {{#link-to 'payments.new' model.id}}
+                <button class="btn btn-primary myButton"><i class="fas fa-plus-square"></i> Agregar pago</button>
+            {{/link-to}}
+            
+        </div>
+        
     </div>
 
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            {{#link-to 'payments.new' model.id}}
-                <button class="btn btn-primary"><i class="fas fa-plus-square"></i> Agregar pago</button>
-            {{/link-to}}
-        </div>
-    </div>
+    <h5>Cliente: {{model.nombre}} {{model.apellidoPaterno}} {{model.apellidoMaterno}}</h5>
 
     <br>
     <br>
     <table class="table">
         <thead>
             <tr>
-                <th>Fecha</th>
+                <th>Fecha del pago</th>
                 <th>Concepto</th>
                 <th>Cantidad</th>
             </tr>
@@ -27,7 +30,7 @@
             {{#each model.payments as |payment|}}
 
                     <tr>
-                        <td>{{payment.fecha}}</td>
+                        <td>{{format-date payment.fecha}}</td>
                         <td>{{payment.concepto}}</td>
                         <td>{{payment.cantidad}}</td>
                     </tr>
@@ -35,14 +38,6 @@
             {{/each}}
         </tbody>
     </table>
-
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            {{#link-to 'clients'}}
-                <button class="btn btn-primary"><i class="fas fa-arrow-circle-left"></i> Regresar</button>
-            {{/link-to}}
-        </div>
-    </div>
 
     <script>
         $(document).ready(function(){

@@ -1,45 +1,55 @@
 <div class="contenedor-principal" style="margin: 20px 50px">
     <form>
-        <div class="form-group">
 
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h4>Agregar Pago</h4>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h4>Agregar Pago</h4>
+            <div class="button-container">
+                {{#link-to 'clients'}}
+                    <button {{action 'addPayment'}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
+                {{/link-to}}
+                {{#link-to 'clients'}}
+                    <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
+                {{/link-to}}
             </div>
-
-            <div class="row">
-                <div class="col-md-3 col-sm-3">
-                    <h5>Nombre: {{model.nombre}}</h5>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <h5>Apellido Paterno: {{model.apellidoPaterno}}</h5>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <h5>Apellido Materno: {{model.apellidoMaterno}}</h5>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                </div>
-            </div>
-
-            <div></div>
-
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <label>Servicio: {{model.service.nombre}}</label>
-                </div>  
-                <div class="col-md-4 col-sm-4">
-                    <label>Cantidad: {{model.service.precio}}</label>
-                </div>
-            </div>
-
         </div>
 
+        <div class="row" style="padding: 10px">
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Cliente: {{model.nombre}} {{model.apellidoPaterno}} {{model.apellidoMaterno}}</label></strong>
+            </div>
+        </div>
 
-        {{#link-to 'clients.payments'}}
-            <button {{action 'addPayment'}} class="btn btn-primary">Guardar</button>
-        {{/link-to}}
-        {{#link-to 'clients'}}
-            <button class="btn btn-primary">Cancelar</button>
-        {{/link-to}}
+        <div></div>
+
+        <div class="row" style="padding: 10px">
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Servicio contratado: </label></strong>
+                <br>
+                <label>{{model.service.nombre}}</label>
+            </div>  
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Cantidad a pagar: </label></strong>
+                <br>
+                <label>{{model.service.precio}}</label>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Mes a pagar: </label></strong>
+                <select name="concepto" class="form-control" onchange={{action "updateValue" value="target.value"}}>
+                    <option value="Enero">Enero</option>
+                    <option value="Febrero">Febrero</option>
+                    <option value="Marzo">Marzo</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Mayo">Mayo</option>
+                    <option value="Junio">Junio</option>
+                    <option value="Julio">Julio</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Septiembre">Septiembre</option>
+                    <option value="Octubre">Octubre</option>
+                    <option value="Noviembre">Noviembre</option>
+                    <option value="Diciembre">Diciembre</option>
+                </select>
+            </div>
+        </div>
 
     </form>
 </div>

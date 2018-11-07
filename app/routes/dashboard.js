@@ -29,6 +29,9 @@ export default Route.extend({
     },
     toList: function() {
       this.transitionTo('clients');
+    },
+    toInstallations: function(){
+      this.transitionTo('installations');
     }
   }
 });
