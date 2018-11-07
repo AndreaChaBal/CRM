@@ -1,109 +1,107 @@
-<form>
-
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Nombre</label>
-            {{input type="text" class="form-control" value=nombre required=true}}
-        </div> 
-    </div>
-    <div class="form-group">
-       <div class="col-md-4 col-sm-4">
-            <label>Apellido paterno</label>
-            {{input type="text" class="form-control" value=apellidoPaterno required=true}}
-        </div> 
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Apellido materno</label>
-            {{input type="text" class="form-control" value=apellidoMaterno required=true}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Email</label>
-            {{input type="email" class="form-control" value=email required=true}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Teléfono</label>
-            {{input type="text" class="form-control" value=telefono}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Dirección</label>
-            {{input type="text" class="form-control" value=direccion}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Colonia</label>
-            {{input type="text" class="form-control" value=colonia}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Localidad</label>
-            {{input type="text" class="form-control" value=localidad}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Municipio</label>
-            {{input type="text" class="form-control" value=municipio}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Asignar contraseña</label>
-            {{input type="text" class="form-control" value=password}}
+<div class="contenedor-principal" style="margin: 20px 50px">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Agregar cliente</h1>
+        <div class="button-container">
+            {{#link-to 'clients'}}
+                <button {{action 'addClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
+            {{/link-to}}
+            {{#link-to 'clients'}}
+                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
+            {{/link-to}}
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Servicio contratado</label>
-            <select name="service" class="form-control" onchange={{action "updateValue" value="target.value"}}>
-                {{#each model as |service|}}
-                    <option value="{{service.id}}">{{service.nombre}}</option>
-                {{/each}}
-            </select>
+    <form>
+        <div style="margin-bottom: 15px; margin-top: 40px">
+            <h5>Datos del cliente:</h5>
         </div>
-    </div>
-
-    <div class="form-group">
-        
-        <div class="input-group date" data-provide="datepicker">
-            {{input type="date" class="form-control" value=date}}
-        </div>
-        <div>
-            <label>Time:</label>
-            {{input type="time" value=time min="9:00" max="18:00" required=true}}
+        <div class="row" style="padding: 10px">
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Nombre</label></strong>
+                {{input type="text" class="form-control" value=nombre required=true}}
+            </div> 
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Apellido paterno</label></strong>
+                {{input type="text" class="form-control" value=apellidoPaterno required=true}}
+            </div> 
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Apellido materno</label></strong>
+                {{input type="text" class="form-control" value=apellidoMaterno required=true}}
+            </div>
         </div>
 
-    </div>
-
-    <div class="form-group">
-        <label>Cliente Recomendado</label>
-        <div class="radio">
-            <label><input type="radio" name="recomendado" checked>Sí</label>
-            <label><input type="radio" name="optradio">No</label>
+        <div class="row" style="padding: 10px">
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Email</label></strong>
+                {{input type="email" class="form-control" value=email required=true}}
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Asignar contraseña</label></strong>
+                {{input type="text" class="form-control" value=password}}
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label>Instalación pagada</label>
-        <div class="radio">
-            <label><input type="radio" name="pagado" checked>Sí</label>
-            <label><input type="radio" name="nopagado">No</label>
+
+        <div class="row" style="padding: 10px">
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Teléfono</label></strong>
+                {{input type="text" class="form-control" value=telefono}}
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Calle y número</label></strong>
+                {{input type="text" class="form-control" value=direccion}}
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Colonia</label></strong>
+                {{input type="text" class="form-control" value=colonia}}
+            </div>
         </div>
-    </div>
+            
+        <div class="row" style="padding: 10px">
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Localidad</label></strong>
+                {{input type="text" class="form-control" value=localidad}}
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Municipio</label></strong>
+                {{input type="text" class="form-control" value=municipio}}
+            </div>
+        </div>
+            
+        <div style="margin-bottom: 15px; margin-top: 40px">
+            <h5>Datos del servicio a contratar:</h5>
+        </div>
 
-    {{#link-to 'clients'}}
-        <button {{action 'addClient' model.id}} class="btn btn-primary">Guardar</button>
-    {{/link-to}}
-    {{#link-to 'clients'}}
-	    <button class="btn btn-primary">Cancelar</button>
-    {{/link-to}}
+        <div class="row" style="padding: 10px">
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Servicio contratado</label></strong>
+                <select name="service" class="form-control" onchange={{action "updateValue" value="target.value"}}>
+                    {{#each model as |service|}}
+                        <option value="{{service.id}}">{{service.nombre}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Fecha de instalación</label></strong>
+                <div class="input-group date" data-provide="datepicker">
+                    {{input type="date" class="form-control" value=date}}
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Hora de instalación</label></strong>
+                <br>
+                {{input type="time" value=time min="9:00" max="18:00" required=true}}
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Instalación pagada</label></strong>
+                <br>
+                {{#radio-button value="Pagó instalación" groupValue=instalacion changed="pagarInstalacion"}}
+                    Sí
+                {{/radio-button}}
+                {{#radio-button value="No pagó instalación" groupValue=instalacion changed="pagarInstalacion"}}
+                    No
+                {{/radio-button}}
+            </div>
+        </div>
 
-</form>
+    </form>
+</div>

@@ -15,5 +15,5 @@ export default DS.Model.extend({
     service: DS.belongsTo('service'),
     fechaInstalacion: DS.attr('date'),
     horaInstalacion: DS.attr('string'),
-    //recomendado: DS.attr('boolean'),
+    pagoInstalacion: DS.attr('string'),
 });

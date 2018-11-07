@@ -319,3 +319,10 @@ th {
 tr{
   text-align: center;
 }
+
+.myButton{
+  width: 150px;
+  height: 50px;
+  margin-right: 25px;
+  float: right;
+}

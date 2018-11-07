@@ -2,17 +2,18 @@
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Clientes</h1>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
+        <div class="button-container">
             {{#link-to 'clients.new'}}
                 <button class="btn btn-primary"><i class="fas fa-plus-square"></i> Agregar cliente</button>
             {{/link-to}}
         </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-6 col-sm-6">
             <input class="form-control" id="input-search" type="text" placeholder="Buscar">
         </div>
+        <div class="col-md-6 col-sm-6"></div>
     </div>
 
     <br>

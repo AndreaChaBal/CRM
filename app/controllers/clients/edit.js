@@ -2,6 +2,9 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     actions: {
+        pagarInstalacion: function(choice){
+            this.set('pagoInstalacion', choice);
+        },
         editClient: function(id){
             var self = this;
 
@@ -14,7 +17,12 @@ export default Controller.extend({
             var colonia = this.get('model.colonia');
             var localidad = this.get('model.localidad');
             var municipio = this.get('model.municipio');
-            //var recomendado = this.get('model.recomendado');
+            var password = this.get('model.password');
+            var servicio = this.get('model.service.id');
+            var fechaInstalacion = this.get('date');
+            var horaInstalacion = this.get('model.horaInstalacion');
+            var pagoInstalacion = this.get('pagoInstalacion');
+            var self = this;
 
             this.store.findRecord('client', id).then(function(client){
                 client.set('nombre', nombre);
@@ -26,6 +34,11 @@ export default Controller.extend({
                 client.set('colonia', colonia);
                 client.set('localidad', localidad);
                 client.set('municipio', municipio);
+                client.set('password', password);
+                client.set('servicio', servicio);
+                client.set('fechaInstalacion', fechaInstalacion);
+                client.set('horaInstalacion', horaInstalacion);
+                client.set('pagoInstalacion', pagoInstalacion);
 
                 client.save();
 

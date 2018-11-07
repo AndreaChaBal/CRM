@@ -2,9 +2,6 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     //NoEditable: true,
-
-
-
     actions: {
         addPayment: function(){
             var self = this;

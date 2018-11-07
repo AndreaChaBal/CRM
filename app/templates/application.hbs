@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  
@@ -14,12 +14,12 @@
 	<nav class="nav nav-masthead justify-content-center">
 	<a class="nav-link" href="{{rootURL}}services">Servicios</a>
 	<a class="nav-link" href="{{rootURL}}contacto">Contacto</a>
-	{{#if session.isAuthenticated}}
-     <span style="color:white;">Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</span>
+	  {{#if session.isAuthenticated}}
+      <a class="nav-link" href="#">Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
       <a class="nav-link" href="{{rootURL}}login" {{action "signOut" preventDefault=false}}>Logout</a>
-      {{else}}
+    {{else}}
       <a class="nav-link" href="{{rootURL}}login">Login</a>
-      {{/if}}
+    {{/if}}
 	</nav>
 </div>
   {{outlet}}

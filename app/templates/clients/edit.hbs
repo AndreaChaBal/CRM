@@ -1,71 +1,104 @@
-<form>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Nombre</label>
-            {{input type="text" class="form-control" value=model.nombre}}
-        </div> 
-    </div>
-    <div class="form-group">
-       <div class="col-md-4 col-sm-4">
-            <label>Apellido paterno</label>
-            {{input type="text" class="form-control" value=model.apellidoPaterno}}
-        </div> 
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Apellido materno</label>
-            {{input type="text" class="form-control" value=model.apellidoMaterno}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Email</label>
-            {{input type="email" class="form-control" value=model.email}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Teléfono</label>
-            {{input type="text" class="form-control" value=model.telefono}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Dirección</label>
-            {{input type="text" class="form-control" value=model.direccion}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Colonia</label>
-            {{input type="text" class="form-control" value=model.colonia}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Localidad</label>
-            {{input type="text" class="form-control" value=model.localidad}}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-4 col-sm-4">
-            <label>Municipio</label>
-            {{input type="text" class="form-control" value=model.municipio}}
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Recomendado</label>
-        <div class="radio">
-            <label><input type="radio" name="recomendado" checked>Sí</label>
-            <label><input type="radio" name="recomendado">No</label>
+<div class="contenedor-principal" style="margin: 20px 50px">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Editar cliente</h1>
+        <div class="button-container">
+            {{#link-to 'clients'}}
+                <button {{action 'editClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
+            {{/link-to}}
+            {{#link-to 'clients'}}
+                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
+            {{/link-to}}
         </div>
     </div>
 
-    {{#link-to 'clients'}}
-        <button {{action 'editClient' model.id}} class="btn btn-primary">Guardar</button>
-    {{/link-to}}
-    {{#link-to 'clients'}}
-	    <button class="btn btn-primary">Cancelar</button>
-    {{/link-to}}
+    <form>
+        <div style="margin-bottom: 15px; margin-top: 40px">
+            <h5>Datos del cliente:</h5>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Nombre</label></strong>
+                {{input type="text" class="form-control" value=model.nombre}}
+            </div> 
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Apellido paterno</label></strong>
+                {{input type="text" class="form-control" value=model.apellidoPaterno}}
+            </div> 
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Apellido materno</label></strong>
+                {{input type="text" class="form-control" value=model.apellidoMaterno}}
+            </div>
+        </div>
 
-</form>
+        <div class="row" style="padding: 10px">
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Email</label></strong>
+                {{input type="email" class="form-control" value=model.email}}
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Asignar contraseña</label></strong>
+                {{input type="text" class="form-control" value=model.password}}
+            </div>
+        </div>
+
+        <div class="row" style="padding: 10px">
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Teléfono</label></strong>
+                {{input type="text" class="form-control" value=model.telefono}}
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Calle y número</label></strong>
+                {{input type="text" class="form-control" value=model.direccion}}
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Colonia</label></strong>
+                {{input type="text" class="form-control" value=model.colonia}}
+            </div>
+        </div>
+            
+        <div class="row" style="padding: 10px">
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Localidad</label></strong>
+                {{input type="text" class="form-control" value=model.localidad}}
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Municipio</label></strong>
+                {{input type="text" class="form-control" value=model.municipio}}
+            </div>
+        </div>
+            
+        <div style="margin-bottom: 15px; margin-top: 40px">
+            <h5>Datos del servicio a contratar:</h5>
+        </div>
+
+        <div class="row" style="padding: 10px">
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Servicio contratado</label></strong>
+                <br>
+                <label>{{model.service.nombre}}</label>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Fecha de instalación</label></strong>
+                <div class="input-group date" data-provide="datepicker">
+                    {{input type="date" class="form-control" value=date}}
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Hora de instalación</label></strong>
+                <br>
+                {{input type="time" value=model.horaInstalacion min="9:00" max="18:00"}}
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Instalación pagada</label></strong>
+                <br>
+                {{#radio-button value="Pagó instalación" groupValue=instalacion changed="pagarInstalacion"}}
+                    Sí
+                {{/radio-button}}
+                {{#radio-button value="No pagó instalación" groupValue=instalacion changed="pagarInstalacion"}}
+                    No
+                {{/radio-button}}
+            </div>
+        </div>
+
+    </form>
+</div>

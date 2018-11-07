@@ -10,16 +10,15 @@ var secondaryApp = firebase.initializeApp(config, "Secondary");
 
     const auth = secondaryApp.auth();
 export default Controller.extend({
-
     servicioContratado: null,
+    pagoInstalacion: null,
     actions: {
-        
         updateValue: function(value){
-            //this.set('service.id', value);
             this.set('servicioContratado', value);
-            console.log(value);
         },
-        
+        pagarInstalacion: function(choice){
+            this.set('pagoInstalacion', choice);
+        },
         addClient: function(){
             var nombre = this.get('nombre');
             var apellidoPaterno  = this.get('apellidoPaterno');
@@ -34,9 +33,8 @@ export default Controller.extend({
             var servicio = this.get('servicioContratado');
             var fechaInstalacion = this.get('date');
             var horaInstalacion = this.get('time');
-
+            var pagoInstalacion = this.get('pagoInstalacion');
             var self = this;
-            //var recomendado = this.get('recomendado');
             auth.createUserWithEmailAndPassword(email, password)
         .then((userResponse)=>{
             let myService = self.store.peekRecord('service', this.get('servicioContratado'));
@@ -54,7 +52,7 @@ export default Controller.extend({
                     service: servicio,
                     fechaInstalacion: new Date(fechaInstalacion),
                     horaInstalacion: horaInstalacion,
-                    //recomendado: recomendado,
+                    pagoInstalacion: pagoInstalacion,
                 });
                 myService.get('clients').pushObject(newClient);
                 newClient.save().then(()=>{
