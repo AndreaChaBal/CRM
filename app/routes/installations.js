@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-    session: Ember.inject.service('session'),
     beforeModel: function() {
         self = this;
         var temp = this.get('session').fetch().catch(function() {
@@ -10,10 +9,8 @@ export default Route.extend({
         });
         return temp;
       },
-	model() {
-        var objTemp= this.get('session.currentUser.uid');
-        var temp = this.store.findRecord('client', objTemp, {include: 'payments'});
-        console.log(temp);
-        return temp;
+    model: function(){
+        var date = ((new Date()).toISOString()).toString('YYYY-MM-DD HH:mm:ss');
+        return this.store.query('client', {orderBy: 'fechaInstalacion', startAt: date});
     }
 });

@@ -33,9 +33,7 @@ export default Controller.extend({
             var password = this.get('password');
             var servicio = this.get('servicioContratado');
             var fechaInstalacion = this.get('date');
-            
-            var hora = this.get('time');
-            console.log(hora);
+            var horaInstalacion = this.get('time');
 
             var self = this;
             //var recomendado = this.get('recomendado');
@@ -55,6 +53,7 @@ export default Controller.extend({
                     id: userResponse.uid,
                     service: servicio,
                     fechaInstalacion: new Date(fechaInstalacion),
+                    horaInstalacion: horaInstalacion,
                     //recomendado: recomendado,
                 });
                 myService.get('clients').pushObject(newClient);
@@ -70,17 +69,6 @@ export default Controller.extend({
                 });
             });
 
-            this.setProperties({
-                nombre: '',
-                apellidoPaterno: '',
-                apellidoMaterno: '',
-                email: '',
-                telefono: '',
-                direccion: '',
-                colonia: '',
-                localidad: '',
-                municipio: '',
-            })
         }
     }
 

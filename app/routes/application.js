@@ -10,14 +10,6 @@ export default Ember.Route.extend({
     
     return modelResult;
   },
-  beforeModel: function() {
-    self = this;
-    var temp = this.get('session').fetch().catch(function() {
-      console.log(self.get('routeName'));
-      self.transitionTo('login');
-    });
-    return temp;
-  },
   afterModel: function(){
     self = this;
     var objTemp = this.get('user').loadCurrentUser();

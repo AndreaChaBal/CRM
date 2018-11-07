@@ -1,0 +1,41 @@
+<div class="contenedor-principal" style="margin: 20px 50px">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Fechas de instalación</h1>
+    </div>
+
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+            </tr>
+        </thead>
+        <tbody id="table-id">
+            {{#each model as |client|}}
+
+                    <tr>
+                        <td>{{client.nombre}} {{client.apellidoPaterno}} {{client.apellidoMaterno}}</td>
+                        <td>{{client.fechaInstalacion}}</td>
+                        <td>{{client.horaInstalacion}}</td>
+                    </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            $("#input-search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#table-id tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+</div>

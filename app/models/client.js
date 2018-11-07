@@ -13,6 +13,7 @@ export default DS.Model.extend({
     isAdmin: DS.attr('boolean'),
     payments: DS.hasMany('payment'),
     service: DS.belongsTo('service'),
-    fechaInstalacion: DS.attr('date')
+    fechaInstalacion: DS.attr('date'),
+    horaInstalacion: DS.attr('string'),
     //recomendado: DS.attr('boolean'),
 });

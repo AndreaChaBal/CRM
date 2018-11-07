@@ -29,6 +29,7 @@ Router.map(function() {
     this.route('edit');
   });
   this.route('appointment');
+  this.route('installations');
 });
 
 export default Router;
