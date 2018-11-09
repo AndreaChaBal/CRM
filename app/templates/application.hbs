@@ -10,15 +10,26 @@
 </head>
 <body>
   <div class="navbar">
-	<a href="{{rootURL}}/"><img class="masthead-brand" src="assets/LOGOMIN.png" alt="Home" width="91" height="25" border="0"></a>
+	<a><img class="masthead-brand" src="/assets/LOGOMIN.png" alt="Home" width="91" height="25" border="0"></a>
 	<nav class="nav nav-masthead justify-content-center">
-	<a class="nav-link" href="{{rootURL}}services">Servicios</a>
-	<a class="nav-link" href="{{rootURL}}contacto">Contacto</a>
+    {{#link-to 'services'}}
+        <a class="nav-link">Servicios</a>
+      {{/link-to}}
+      {{#link-to 'contacto'}}
+        <a class="nav-link">Contacto</a>
+      {{/link-to}}
 	  {{#if session.isAuthenticated}}
+<<<<<<< HEAD
       <a class="nav-link" href="{{rootURL}}dashboard">Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
       <a class="nav-link" href="{{rootURL}}login" {{action "signOut" preventDefault=false}}>Logout</a>
+=======
+      <a class="nav-link" href="#">Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
+      <a style="color:white;" class="nav-link" {{action "signOut" preventDefault=false}}>Logout</a>
+>>>>>>> 0de7b883f38e556ea3e7955707289015ae8e1685
     {{else}}
-      <a class="nav-link" href="{{rootURL}}login">Login</a>
+      {{#link-to 'login'}}
+        <a class="nav-link">Login</a>
+      {{/link-to}} 
     {{/if}}
 	</nav>
 </div>
