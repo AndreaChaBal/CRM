@@ -65,5 +65,15 @@ export default Ember.Route.extend({
       this.get('session').close();
       this.transitionTo('login');
     },
+<<<<<<< HEAD
+=======
+    redirect: function(){
+      var role = this.get('loggedStatus.loggedPerm');
+      if(role =="admin")
+        self.transitionTo('dashboard');
+      else 
+        self.transitionTo('profile');
+    }
+>>>>>>> 93d993f70ff669a6c04fe536e6832be43da86388
   }
 });
