@@ -64,6 +64,13 @@ export default Ember.Route.extend({
     signOut: function() {
       this.get('session').close();
       this.transitionTo('login');
+    },
+    redirect: function(){
+      var role = this.get('loggedStatus.loggedPerm');
+      if(role =="admin")
+        self.transitionTo('dashboard');
+      else 
+        self.transitionTo('profile');
     }
   }
 });
