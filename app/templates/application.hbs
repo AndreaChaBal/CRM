@@ -10,7 +10,9 @@
 </head>
 <body>
   <div class="navbar">
-	<a><img class="masthead-brand" src="/assets/LOGOMIN.png" alt="Home" width="91" height="25" border="0"></a>
+    {{#link-to 'home'}}
+          <a><img class="masthead-brand" src="/assets/LOGOMIN.png" alt="Home" width="91" height="25" border="0"></a>
+      {{/link-to}}
 	<nav class="nav nav-masthead justify-content-center">
     {{#link-to 'services'}}
         <a class="nav-link">Servicios</a>
