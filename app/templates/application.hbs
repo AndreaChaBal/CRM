@@ -19,8 +19,13 @@
         <a class="nav-link">Contacto</a>
       {{/link-to}}
 	  {{#if session.isAuthenticated}}
+<<<<<<< HEAD
+      <a class="nav-link" href="{{rootURL}}dashboard">Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
+      <a class="nav-link" href="{{rootURL}}login" {{action "signOut" preventDefault=false}}>Logout</a>
+=======
       <a class="nav-link" href="#">Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
       <a style="color:white;" class="nav-link" {{action "signOut" preventDefault=false}}>Logout</a>
+>>>>>>> 0de7b883f38e556ea3e7955707289015ae8e1685
     {{else}}
       {{#link-to 'login'}}
         <a class="nav-link">Login</a>

@@ -4,7 +4,7 @@
 	<a class="nav-link" href="{{rootURL}}services">Servicios</a>
 	<a class="nav-link" href="{{rootURL}}contacto">Contacto</a>
 	{{#if session.isAuthenticated}}
-            <a class="nav-link" href="#">Logged in as {{session.currentUser.displayName}} </a>
+            <a class="nav-link" href="{{rootURL}}dashboard">Logged in as {{session.currentUser.displayName}} </a>
             <a class="nav-link" href="{{rootURL}}login">Logout</a>
       {{else}}
             Logged in as no one {{session.currentUser.displayName}}
