@@ -9,6 +9,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+  {{#if isLoaded}}
+    {{ember-spinner}}
+  {{else}}
   <div class="navbar">
     {{#link-to 'home'}}
           <a><img class="masthead-brand" src="/assets/LOGOMIN.png" alt="Home" width="91" height="25" border="0"></a>
@@ -31,6 +34,7 @@
 	</nav>
 </div>
   {{outlet}}
+{{/if}}
 </body>
 </html>
 

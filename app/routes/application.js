@@ -3,15 +3,19 @@ import Route from '@ember/routing/route';
 export default Ember.Route.extend({
   session: Ember.inject.service(),
   user: Ember.inject.service(),
+  setupController(controller) {
+        this._super(...arguments);
+        controller.set('isLoaded', true);
+    },
   model(){
     this._super(...arguments);
     this.set('loggedStatus', {loggedAs: 'a', loggedPerm: ''});
     let modelResult = {loggedStatus: this.get('loggedStatus')};
-    
     return modelResult;
   },
   beforeModel: function() {
     self = this;
+    console.log(self.get('isLoaded'));
     var temp = this.get('session').fetch().catch(function() {
       console.log(self.get('routeName'));
       //self.transitionTo('login');
@@ -28,7 +32,9 @@ export default Ember.Route.extend({
           Ember.set(self.get('loggedStatus'), 'loggedAs', objTemp.uname);
           Ember.set(self.get('loggedStatus'), 'loggedPerm', objTemp.urole);
           console.log(self.get('loggedStatus'));
-      }, 500);
+          self.controller.set('isLoaded', false);
+          console.log(self.controller.get('isLoaded'));
+      }, 2000);
     }
   },
   actions: {
