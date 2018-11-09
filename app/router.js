@@ -16,7 +16,10 @@ Router.map(function() {
     this.route('payments');
   });
   this.route('clientdetails');
-  this.route('potentialclient');
+  this.route('potentialclient', function() {
+    this.route('new');
+    this.route('edit', {path:'/edit/:potentialclient_id'});
+  });
   this.route('signup');
   this.route('clients', function() {
     this.route('new');

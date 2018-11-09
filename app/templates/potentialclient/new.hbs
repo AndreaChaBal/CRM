@@ -1,0 +1,67 @@
+<div class="contenedor-principal" style="margin: 20px 50px">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Agregar Cliente Potencial</h1>
+        <div class="button-container">
+            {{#link-to 'potentialclient'}}
+                <button {{action 'addPotentialClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Agregar </button>
+            {{/link-to}}
+            {{#link-to 'potentialclient'}}
+                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
+            {{/link-to}}
+        </div>
+    </div>
+
+    <form>
+        <div style="margin-bottom: 15px; margin-top: 40px">
+            <h5>Datos de la persona:</h5>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Nombre</label></strong>
+                {{input type="text" class="form-control" value=nombre required=true}}
+            </div> 
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Apellido paterno</label></strong>
+                {{input type="text" class="form-control" value=apellidoPaterno required=true}}
+            </div> 
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Apellido materno</label></strong>
+                {{input type="text" class="form-control" value=apellidoMaterno required=true}}
+            </div>
+        </div>
+
+        <div class="row" style="padding: 10px">
+            <div class="col-md-6 col-sm-6">
+                <strong><label>Email</label></strong>
+                {{input type="email" class="form-control" value=email required=true}}
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <strong><label>Teléfono</label></strong>
+                {{input type="text" class="form-control" value=telefono}}
+            </div>
+        </div>
+            
+        <div style="margin-bottom: 15px; margin-top: 40px">
+            <h5>Servicio que le interesa:</h5>
+        </div>
+
+        <div class="row" style="padding: 10px">
+             <div class="col-md-4 col-sm-4">
+                <strong><label>Numero del Servicio</label></strong>
+                {{input type="text" class="form-control" value=numeroDelServicio}}
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px; margin-top: 40px">
+            <h5>Encuesta:</h5>
+        </div>
+
+        <div class="row" style="padding: 10px">
+             <div class="col-md-4 col-sm-4">
+                <strong><label>Donde escucho del servicio:</label></strong>
+                {{input type="text" class="form-control" value=encuesta}}
+            </div>
+        </div>
+
+    </form>
+</div>
