@@ -12,6 +12,7 @@ var secondaryApp = firebase.initializeApp(config, "Secondary");
 export default Controller.extend({
     servicioContratado: null,
     pagoInstalacion: null,
+    emailService: Ember.inject.service('email'),
     actions: {
         updateValue: function(value){
             this.set('servicioContratado', value);
@@ -63,6 +64,9 @@ export default Controller.extend({
                      confirmButtonText: 'OK',
                      type: 'success'
                    });
+                    var text = ("Nombre: "+nombre+ " Telefono: "+telefono + " Direccion: "+direccion+"<br>"+fechaInstalacion);
+                    console.log(text);
+                    self.get('emailService').sendEmail(email, "Agenda de instalacion", text);
                     secondaryApp.auth().signOut();
                 });
             });

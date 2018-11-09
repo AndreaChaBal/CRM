@@ -25,17 +25,17 @@ export default Ember.Route.extend({
   afterModel: function(){
     self = this;
     var objTemp = this.get('user').loadCurrentUser();
-    console.log(objTemp);
-    if(objTemp){
-      setTimeout(function()
+    setTimeout(function()
       {
-          Ember.set(self.get('loggedStatus'), 'loggedAs', objTemp.uname);
-          Ember.set(self.get('loggedStatus'), 'loggedPerm', objTemp.urole);
-          console.log(self.get('loggedStatus'));
+          if(objTemp){
+            Ember.set(self.get('loggedStatus'), 'loggedAs', objTemp.uname);
+            Ember.set(self.get('loggedStatus'), 'loggedPerm', objTemp.urole);
+            console.log(self.get('loggedStatus'));
+            self.controller.set('isLoaded', false);
+            console.log(self.controller.get('isLoaded'));
+          }
           self.controller.set('isLoaded', false);
-          console.log(self.controller.get('isLoaded'));
       }, 2000);
-    }
   },
   actions: {
     signIn: function(provider, email, password) {
