@@ -14,7 +14,7 @@ export default Ember.Route.extend({
     self = this;
     var temp = this.get('session').fetch().catch(function() {
       console.log(self.get('routeName'));
-      self.transitionTo('login');
+      //self.transitionTo('login');
     });
     return temp;
   },
