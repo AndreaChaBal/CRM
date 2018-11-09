@@ -5,19 +5,19 @@ export default Ember.Route.extend({
   user: Ember.inject.service(),
   model(){
     this._super(...arguments);
-    //this.set('loggedStatus', {loggedAs: 'a', loggedPerm: ''});
+    this.set('loggedStatus', {loggedAs: 'a', loggedPerm: ''});
     let modelResult = {loggedStatus: this.get('loggedStatus')};
     
     return modelResult;
   },
-  /*beforeModel: function() {
+  beforeModel: function() {
     self = this;
     var temp = this.get('session').fetch().catch(function() {
       console.log(self.get('routeName'));
       self.transitionTo('login');
     });
     return temp;
-  },*/
+  },
   afterModel: function(){
     self = this;
     var objTemp = this.get('user').loadCurrentUser();
