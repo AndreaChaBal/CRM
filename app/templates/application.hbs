@@ -24,11 +24,11 @@
         <a class="nav-link">Contacto</a>
       {{/link-to}}
 	  {{#if session.isAuthenticated}}
-      <a style="color:gray;" class="nav-link" {{action "redirect" preventDefault=false}}>Logged in as {{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
-      <a style="color:white;" class="nav-link" {{action "signOut" preventDefault=false}}>Logout</a>
+      <a style="color:gray; cursor: pointer;" class="nav-link" {{action "redirect" preventDefault=false}}>{{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
+      <a style="color:white;" class="nav-link" {{action "signOut" preventDefault=false}}>Cerrar sesión</a>
     {{else}}
       {{#link-to 'login'}}
-        <a class="nav-link">Login</a>
+        <a class="nav-link">Iniciar sesión</a>
       {{/link-to}} 
     {{/if}}
 	</nav>

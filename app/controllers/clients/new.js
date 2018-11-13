@@ -36,6 +36,22 @@ export default Controller.extend({
             var horaInstalacion = this.get('time');
             var pagoInstalacion = this.get('pagoInstalacion');
             var self = this;
+            if(nombre == undefined || apellidoPaterno == undefined || apellidoMaterno == undefined
+                || email == undefined || telefono == undefined || direccion == undefined || colonia == undefined ||
+                localidad == undefined || municipio == undefined || password == undefined || servicio == undefined || fechaInstalacion== undefined
+                || horaInstalacion == undefined || pagoInstalacion == undefined || nombre == "" || apellidoPaterno == "" || apellidoMaterno == ""
+                || email == "" || telefono == "" || direccion == "" || colonia == "" ||
+                localidad == "" || municipio == "" || password == "" || servicio == "" || fechaInstalacion== ""
+                || horaInstalacion == "" || pagoInstalacion == "")
+            {
+                window.swal({
+                     title: 'Error!',
+                     text: 'Faltan datos.',
+                     confirmButtonText: 'OK',
+                     type: 'error'
+                   });
+            }
+            else
             auth.createUserWithEmailAndPassword(email, password)
         .then((userResponse)=>{
             let myService = self.store.peekRecord('service', this.get('servicioContratado'));

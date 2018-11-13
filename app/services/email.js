@@ -10,7 +10,7 @@ export default Service.extend({
         console.log("Subject: "+subject);
         console.log("Body: "+body);
     	
-        Ember.$.post("api/email", {
+        Ember.$.post("/api/email", {
             to: to,
             subject: subject,
             body: body
