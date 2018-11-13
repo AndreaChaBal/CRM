@@ -1,9 +1,12 @@
 <div class="container">
    <div class="row">
     <div class="span6 profile-panel" style="float: none;">
+    <img src="https://png2.kisspng.com/20180612/tox/kisspng-samsung-galaxy-a8-a8-user-login-telephone-avata-pawn-5b20728263c2d1.7486204615288531224086.png" alt="" class="img-circle" style="width:120px;" id="user-img" class="center">
           <div class="panel panel-info">
             <div class="panel-heading">
+            <div style="text-align: center;">
               <h3 class="panel-title">{{model.nombre}} {{model.apellidoPaterno}} {{model.apellidoMaterno}}</h3>
+              </div>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -32,9 +35,11 @@
                      </tr>
                     </tbody>
                   </table>
+                  <div style="text-align: center;">
                   {{#link-to 'profile.payments'}}
                   <button class="btn btn-primary">Ver pagos anteriores</button>
                   {{/link-to}}
+                  </div>
                 </div>
               </div>
             </div>            
