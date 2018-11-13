@@ -36,5 +36,8 @@ export default Route.extend({
     toPayments: function(){
       this.transitionTo('payments');
     },
+    toPotentialClient: function(){
+      this.transitionTo('potentialclient.index');
+    },
   }
 });
