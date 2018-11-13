@@ -15,6 +15,9 @@ const auth = secondaryApp.auth();
 export default Controller.extend({
 
 	actions: {
+		updateValue: function(value){
+            this.set('numeroDelServicio', value);
+        },
 		addPotentialClient: function(){
 			var nombre = this.get('nombre');
 			var apellidoPaterno = this.get('apellidoPaterno');
