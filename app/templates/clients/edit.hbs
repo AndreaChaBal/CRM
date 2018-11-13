@@ -2,9 +2,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Editar cliente</h1>
         <div class="button-container">
-            {{#link-to 'clients'}}
-                <button {{action 'editClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
-            {{/link-to}}
+            <button {{action 'editClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
             {{#link-to 'clients'}}
                 <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
             {{/link-to}}

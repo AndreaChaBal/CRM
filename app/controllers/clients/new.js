@@ -38,7 +38,7 @@ export default Controller.extend({
             var self = this;
             if(nombre == undefined || apellidoPaterno == undefined || apellidoMaterno == undefined
                 || email == undefined || telefono == undefined || direccion == undefined || colonia == undefined ||
-                localidad == undefined || municipio == undefined || password == undefined || servicio == undefined || fechaInstalacion== undefined
+                localidad == undefined || municipio == undefined || password == undefined || servicio == undifined || fechaInstalacion== undefined
                 || horaInstalacion == undefined || pagoInstalacion == undefined || nombre == "" || apellidoPaterno == "" || apellidoMaterno == ""
                 || email == "" || telefono == "" || direccion == "" || colonia == "" ||
                 localidad == "" || municipio == "" || password == "" || servicio == "" || fechaInstalacion== ""
@@ -86,7 +86,6 @@ export default Controller.extend({
                     secondaryApp.auth().signOut();
                 });
             });
-
         }
     }
 

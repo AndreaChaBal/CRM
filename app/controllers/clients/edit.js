@@ -23,7 +23,7 @@ export default Controller.extend({
             var horaInstalacion = this.get('model.horaInstalacion');
             var pagoInstalacion = this.get('pagoInstalacion');
             var self = this;
-
+            
             this.store.findRecord('client', id).then(function(client){
                 client.set('nombre', nombre);
                 client.set('apellidoPaterno', apellidoPaterno);
@@ -40,9 +40,26 @@ export default Controller.extend({
                 client.set('horaInstalacion', horaInstalacion);
                 client.set('pagoInstalacion', pagoInstalacion);
 
-                client.save();
+                if(nombre == undefined || apellidoPaterno == undefined || apellidoMaterno == undefined
+                    || email == undefined || telefono == undefined || direccion == undefined || colonia == undefined ||
+                    localidad == undefined || municipio == undefined || password == undefined || servicio == undefined || fechaInstalacion== undefined
+                    || horaInstalacion == undefined || pagoInstalacion == undefined || nombre == "" || apellidoPaterno == "" || apellidoMaterno == ""
+                    || email == "" || telefono == "" || direccion == "" || colonia == "" ||
+                    localidad == "" || municipio == "" || password == "" || servicio == "" || fechaInstalacion== ""
+                    || horaInstalacion == "" || pagoInstalacion == "")
+                {
+                    window.swal({
+                         title: 'Error!',
+                         text: 'Faltan datos.',
+                         confirmButtonText: 'OK',
+                         type: 'error'
+                       });
+                }
+                else {
+                    client.save();
 
-                self.transitionToRoute('clients');
+                    self.transitionToRoute('clients');
+                }
             });
 
         }
