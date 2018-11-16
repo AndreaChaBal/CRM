@@ -7,10 +7,10 @@ export default Controller.extend({
         },
         cancel: function(){
             this.transitionToRoute('clients');
+            location.reload();
         },
         editClient: function(id){
             var self = this;
-
             var nombre = this.get('model.nombre');
             var apellidoPaterno  = this.get('model.apellidoPaterno');
             var apellidoMaterno = this.get('model.apellidoMaterno');
