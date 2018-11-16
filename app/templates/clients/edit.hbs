@@ -3,9 +3,7 @@
         <h1 class="h2">Editar cliente</h1>
         <div class="button-container">
             <button {{action 'editClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
-            {{#link-to 'clients'}}
-                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
-            {{/link-to}}
+            <button {{action 'cancel'}} class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
         </div>
     </div>
 

@@ -106,6 +106,7 @@ export default Controller.extend({
                 horaInstalacion: "",
             })
             self.transitionToRoute('clients');
+            
         }
     }
 

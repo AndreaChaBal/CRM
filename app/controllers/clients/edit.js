@@ -5,6 +5,10 @@ export default Controller.extend({
         pagarInstalacion: function(choice){
             this.set('pagoInstalacion', choice);
         },
+        cancel: function(){
+            
+            this.transitionToRoute('clients');
+        },
         editClient: function(id){
             var self = this;
 
