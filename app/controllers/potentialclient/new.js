@@ -8,7 +8,7 @@ var config = {apiKey: "AIzaSyCeJpYjPn07X7zVuOXOErqNxH9gQubcdh8",
       storageBucket: "itmex-ac80b.appspot.com",
       messagingSenderId: "166913341683"};
 
-var secondaryApp = firebase.initializeApp(config, "Secondary");
+var secondaryApp = firebase.initializeApp(config, "Third");
 
 const auth = secondaryApp.auth();
 
