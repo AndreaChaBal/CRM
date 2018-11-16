@@ -4,9 +4,7 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h4>Agregar Pago</h4>
             <div class="button-container">
-                {{#link-to 'clients'}}
-                    <button {{action 'addPayment'}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
-                {{/link-to}}
+                <button {{action 'addPayment'}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
                 {{#link-to 'clients'}}
                     <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
                 {{/link-to}}
@@ -35,6 +33,7 @@
             <div class="col-md-4 col-sm-4">
                 <strong><label>Mes a pagar: </label></strong>
                 <select name="concepto" class="form-control" onchange={{action "updateValue" value="target.value"}}>
+                    <option value="default">-----</option>
                     <option value="Enero">Enero</option>
                     <option value="Febrero">Febrero</option>
                     <option value="Marzo">Marzo</option>

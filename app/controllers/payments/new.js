@@ -13,22 +13,39 @@ export default Controller.extend({
             var concepto = this.get('concepto');
             var cliente = this.get('model.id');
 
-            let myClient = this.store.peekRecord('client', cliente);
+            if(concepto == undefined || concepto == "") {
+                window.swal({
+                    title: 'Error!',
+                    text: 'Agrega el concepto de pago',
+                    confirmButtonText: 'OK',
+                    type: 'error'
+                  });
+            }
 
-            var newPayment = this.store.createRecord('payment', {
-                fecha: fecha,
-                cantidad: cantidad,
-                concepto: concepto,
-                cliente: myClient,
-            });
-            
-            myClient.get('payments').pushObject(newPayment);
+            else {
+                let myClient = this.store.peekRecord('client', cliente);
 
+                var newPayment = this.store.createRecord('payment', {
+                    fecha: fecha,
+                    cantidad: cantidad,
+                    concepto: concepto,
+                    cliente: myClient,
+                });
+                
+                myClient.get('payments').pushObject(newPayment);
 
-            newPayment.save().then(function(){
-                myClient.save();   
-            });
-
+                newPayment.save().then(function(){
+                    myClient.save().then(()=>{
+                        window.swal({
+                        title: 'Listo!',
+                        text: 'Pago creado correctamente. \n Cliente: ' + myClient.nombre,
+                        confirmButtonText: 'OK',
+                        type: 'success'
+                    });
+                        self.transitionToRoute('clients');
+                    });  
+                });
+            }
             //var cliente = this.get('cliente');
             //cliente.get('pagos').addObject(newPayment);
               

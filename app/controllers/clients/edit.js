@@ -42,11 +42,9 @@ export default Controller.extend({
 
                 if(nombre == undefined || apellidoPaterno == undefined || apellidoMaterno == undefined
                     || email == undefined || telefono == undefined || direccion == undefined || colonia == undefined ||
-                    localidad == undefined || municipio == undefined || password == undefined || servicio == undefined || fechaInstalacion== undefined
-                    || horaInstalacion == undefined || pagoInstalacion == undefined || nombre == "" || apellidoPaterno == "" || apellidoMaterno == ""
+                    localidad == undefined || municipio == undefined || nombre == "" || apellidoPaterno == "" || apellidoMaterno == ""
                     || email == "" || telefono == "" || direccion == "" || colonia == "" ||
-                    localidad == "" || municipio == "" || password == "" || servicio == "" || fechaInstalacion== ""
-                    || horaInstalacion == "" || pagoInstalacion == "")
+                    localidad == "" || municipio == "")
                 {
                     window.swal({
                          title: 'Error!',
@@ -56,9 +54,15 @@ export default Controller.extend({
                        });
                 }
                 else {
-                    client.save();
-
+                    client.save().then(()=>{
+                        window.swal({
+                         title: 'Listo!',
+                         text: 'Se han editado los datos correctamente.',
+                         confirmButtonText: 'OK',
+                         type: 'success'
+                       });
                     self.transitionToRoute('clients');
+                    })
                 }
             });
 

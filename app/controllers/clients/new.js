@@ -38,7 +38,7 @@ export default Controller.extend({
             var self = this;
             if(nombre == undefined || apellidoPaterno == undefined || apellidoMaterno == undefined
                 || email == undefined || telefono == undefined || direccion == undefined || colonia == undefined ||
-                localidad == undefined || municipio == undefined || password == undefined || servicio == undifined || fechaInstalacion== undefined
+                localidad == undefined || municipio == undefined || password == undefined || servicio == undefined || fechaInstalacion== undefined
                 || horaInstalacion == undefined || pagoInstalacion == undefined || nombre == "" || apellidoPaterno == "" || apellidoMaterno == ""
                 || email == "" || telefono == "" || direccion == "" || colonia == "" ||
                 localidad == "" || municipio == "" || password == "" || servicio == "" || fechaInstalacion== ""
@@ -46,7 +46,7 @@ export default Controller.extend({
             {
                 window.swal({
                      title: 'Error!',
-                     text: 'Faltan datos.',
+                     text: 'Faltan datos',
                      confirmButtonText: 'OK',
                      type: 'error'
                    });
@@ -76,16 +76,35 @@ export default Controller.extend({
                     myService.save();
                     window.swal({
                      title: 'Listo!',
-                     text: 'Cliente creado correctamente.',
+                     text: 'Cliente creado correctamente',
                      confirmButtonText: 'OK',
                      type: 'success'
                    });
-                    var text = ("Nombre: "+nombre+ " Telefono: "+telefono + " Direccion: "+direccion+"<br>"+fechaInstalacion);
+                    var text = ("Nombre: "+nombre+ " Telefono: "+telefono + " Direccion: "+direccion+" Fecha de Instalacion: "+fechaInstalacion);
                     console.log(text);
                     self.get('emailService').sendEmail(email, "Agenda de instalacion", text);
                     secondaryApp.auth().signOut();
+                    self.transitionToRoute('clients');
                 });
             });
+        },
+        cancel: function(){
+            var self = this;
+            this.setProperties({
+                nombre: "",
+                apellidoPaterno : "",
+                apellidoMaterno: "",
+                email: "",
+                telefono: "",
+                direccion: "",
+                colonia: "",
+                localidad: "",
+                municipio: "",
+                service: "",
+                fechaInstalacion: "",
+                horaInstalacion: "",
+            })
+            self.transitionToRoute('clients');
         }
     }
 

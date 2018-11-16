@@ -2,10 +2,8 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Agregar cliente</h1>
         <div class="button-container">
-                <button {{action 'addClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
-            {{#link-to 'clients'}}
-                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
-            {{/link-to}}
+            <button {{action 'addClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
+            <button {{action 'cancel'}} class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
         </div>
     </div>
 
@@ -73,7 +71,7 @@
             <div class="col-md-3 col-sm-3">
                 <strong><label>Servicio contratado</label></strong>
                 <select name="service" class="form-control" onchange={{action "updateValue" value="target.value"}}>
-                        <option value="default">---</option>
+                        <option value="default">-----</option>
                     {{#each model as |service|}}
                         <option value="{{service.id}}">{{service.nombre}}</option>
                     {{/each}}
