@@ -54,6 +54,10 @@ export default Controller.extend({
             else {
             auth.createUserWithEmailAndPassword(email, password)
         .then((userResponse)=>{
+            fechaInstalacion = fechaInstalacion.split("-");
+            var year = fechaInstalacion[0];
+            var month = parseInt(fechaInstalacion[1], 10) - 1;
+            var date = fechaInstalacion[2];
             let myService = self.store.peekRecord('service', this.get('servicioContratado'));
             var newClient = self.store.createRecord('client', {
                     nombre: nombre,
@@ -67,7 +71,7 @@ export default Controller.extend({
                     municipio: municipio,
                     id: userResponse.uid,
                     service: servicio,
-                    fechaInstalacion: new Date(fechaInstalacion),
+                    fechaInstalacion: new Date(year, month, date),
                     horaInstalacion: horaInstalacion,
                     pagoInstalacion: pagoInstalacion,
                 });
