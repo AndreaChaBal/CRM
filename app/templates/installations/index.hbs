@@ -1,5 +1,4 @@
 <div class="contenedor-principal" style="margin: 20px 50px">
-
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Fechas de instalación</h1>
         <div class="button-container">
@@ -32,7 +31,7 @@
 
                     <tr>
                         <td>{{client.nombre}} {{client.apellidoPaterno}} {{client.apellidoMaterno}}</td>
-                        <td>{{format-date client.fechaInstalacion}}</td>
+                        <td>{{client.fechaInstalacion}}</td>
                         <td>{{client.horaInstalacion}}</td>
                         {{#link-to 'installations.new' client.id}}
                             <center><button class="btn-danger">Cancelar</button></center>

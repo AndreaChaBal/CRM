@@ -9,10 +9,14 @@ export default Controller.extend({
           var self = this;
           
           this.store.findRecord('client', id).then(function(client){
-  
-            client.set('fechaInstalacion', new Date(fechaInstalacion));
+            console.log(fechaInstalacion);
+            fechaInstalacion = fechaInstalacion.split("-");
+            var year = fechaInstalacion[0];
+            var month = parseInt(fechaInstalacion[1], 10) - 1;
+            var date = fechaInstalacion[2];
+            client.set('fechaInstalacion', new Date(year, month, date));
             client.set('horaInstalacion', horaInstalacion);
-  
+            console.log(client.get('fechaInstalacion'));
             if(fechaInstalacion == undefined || horaInstalacion == undefined)
             {
                 window.swal({
