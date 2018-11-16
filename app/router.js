@@ -32,7 +32,9 @@ Router.map(function() {
     this.route('edit');
   });
   this.route('appointment');
-  this.route('installations');
+  this.route('installations', function() {
+    this.route('new', {path: '/:client_id'});
+  });
 });
 
 export default Router;

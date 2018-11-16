@@ -51,9 +51,13 @@ export default Controller.extend({
                      type: 'error'
                    });
             }
-            else
+            else {
             auth.createUserWithEmailAndPassword(email, password)
         .then((userResponse)=>{
+            fechaInstalacion = fechaInstalacion.split("-");
+            var year = fechaInstalacion[0];
+            var month = parseInt(fechaInstalacion[1], 10) - 1;
+            var date = fechaInstalacion[2];
             let myService = self.store.peekRecord('service', this.get('servicioContratado'));
             var newClient = self.store.createRecord('client', {
                     nombre: nombre,
@@ -67,7 +71,7 @@ export default Controller.extend({
                     municipio: municipio,
                     id: userResponse.uid,
                     service: servicio,
-                    fechaInstalacion: new Date(fechaInstalacion),
+                    fechaInstalacion: new Date(year, month, date),
                     horaInstalacion: horaInstalacion,
                     pagoInstalacion: pagoInstalacion,
                 });
@@ -86,7 +90,26 @@ export default Controller.extend({
                     secondaryApp.auth().signOut();
                     self.transitionToRoute('clients');
                 });
+            }).catch(function(error){
+                console.log(error);
+                if(error.code == "auth/invalid-email"){
+                    window.swal({
+                        title: 'Error!',
+                        text: 'Email inválido',
+                        confirmButtonText: 'OK',
+                        type: 'error'
+                      });
+                }
+                if(error.code == "auth/email-already-in-use"){
+                    window.swal({
+                        title: 'Error!',
+                        text: 'Este email ya ha sido registrado previamente',
+                        confirmButtonText: 'OK',
+                        type: 'error'
+                      });
+                }
             });
+        }
         },
         cancel: function(){
             var self = this;
@@ -105,6 +128,7 @@ export default Controller.extend({
                 horaInstalacion: "",
             })
             self.transitionToRoute('clients');
+            
         }
     }
 

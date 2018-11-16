@@ -1,0 +1,34 @@
+<div class="contenedor-principal" style="margin: 20px 50px">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Nueva fecha de instalación</h1>
+        <div class="button-container">
+            <button {{action 'newInstallation' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
+            {{#link-to 'installations'}}
+                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
+            {{/link-to}}
+        </div>
+    </div>
+
+    <h5>Cliente: {{model.nombre}} {{model.apellidoPaterno}} {{model.apellidoMaterno}}</h5>
+    <br>
+    <h5>Fecha de instalación anterior: {{format-date model.fechaInstalacion}}</h5>
+    <h5>Hora de instalación anterior: {{model.horaInstalacion}}</h5>
+    <br>
+
+    <form>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Nueva fecha de instalación</label></strong>
+                <div class="input-group date" data-provide="datepicker">
+                    {{input type="date" class="form-control" value=date}}
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <strong><label>Nueva hora de instalación</label></strong>
+                <br>
+                {{input type="time" value=time min="9:00" max="18:00" required=true}}
+            </div>
+        </div>
+
+    </form>
+</div>

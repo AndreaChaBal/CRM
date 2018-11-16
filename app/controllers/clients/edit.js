@@ -5,9 +5,12 @@ export default Controller.extend({
         pagarInstalacion: function(choice){
             this.set('pagoInstalacion', choice);
         },
+        cancel: function(){
+            this.transitionToRoute('clients');
+            location.reload();
+        },
         editClient: function(id){
             var self = this;
-
             var nombre = this.get('model.nombre');
             var apellidoPaterno  = this.get('model.apellidoPaterno');
             var apellidoMaterno = this.get('model.apellidoMaterno');
@@ -37,8 +40,14 @@ export default Controller.extend({
                 client.set('password', password);
                 client.set('servicio', servicio);
                 client.set('fechaInstalacion', fechaInstalacion);
-                client.set('horaInstalacion', horaInstalacion);
-                client.set('pagoInstalacion', pagoInstalacion);
+                if(password != undefined)
+                    client.set('password', password);
+                if(horaInstalacion != undefined)
+                    client.set('horaInstalacion', horaInstalacion);
+                if(fechaInstalacion != undefined)
+                    client.set('fechaInstalacion', new Date(fechaInstalacion));
+                if(pagoInstalacion != undefined)
+                    client.set('pagoInstalacion', pagoInstalacion);
 
                 if(nombre == undefined || apellidoPaterno == undefined || apellidoMaterno == undefined
                     || email == undefined || telefono == undefined || direccion == undefined || colonia == undefined ||

@@ -3,9 +3,7 @@
         <h1 class="h2">Editar cliente</h1>
         <div class="button-container">
             <button {{action 'editClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Guardar</button>
-            {{#link-to 'clients'}}
-                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
-            {{/link-to}}
+            <button {{action 'cancel'}} class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
         </div>
     </div>
 
@@ -33,10 +31,6 @@
                 <strong><label>Email</label></strong>
                 {{input type="email" class="form-control" value=model.email}}
             </div>
-            <div class="col-md-6 col-sm-6">
-                <strong><label>Asignar contraseña</label></strong>
-                {{input type="text" class="form-control" value=model.password}}
-            </div>
         </div>
 
         <div class="row" style="padding: 10px">
@@ -62,39 +56,6 @@
             <div class="col-md-6 col-sm-6">
                 <strong><label>Municipio</label></strong>
                 {{input type="text" class="form-control" value=model.municipio}}
-            </div>
-        </div>
-            
-        <div style="margin-bottom: 15px; margin-top: 40px">
-            <h5>Datos del servicio a contratar:</h5>
-        </div>
-
-        <div class="row" style="padding: 10px">
-            <div class="col-md-3 col-sm-3">
-                <strong><label>Servicio contratado</label></strong>
-                <br>
-                <label>{{model.service.nombre}}</label>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <strong><label>Fecha de instalación</label></strong>
-                <div class="input-group date" data-provide="datepicker">
-                    {{input type="date" class="form-control" value=date}}
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <strong><label>Hora de instalación</label></strong>
-                <br>
-                {{input type="time" value=model.horaInstalacion min="9:00" max="18:00"}}
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <strong><label>Instalación pagada</label></strong>
-                <br>
-                {{#radio-button value="Pagó instalación" groupValue=instalacion changed="pagarInstalacion"}}
-                    Sí
-                {{/radio-button}}
-                {{#radio-button value="No pagó instalación" groupValue=instalacion changed="pagarInstalacion"}}
-                    No
-                {{/radio-button}}
             </div>
         </div>
 

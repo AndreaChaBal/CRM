@@ -47,10 +47,27 @@ export default Controller.extend({
 				}
 			});
 
-		}/*,
+		},
 
-		cancel: function(){
-            if(nombre == undefined || nombre == "" || apellidoPaterno == undefined || apellidoPaterno == "" || email == undefined || email == "" || telefono == undefined || telefono == "" || numeroDelServicio == undefined || numeroDelServicio == ""){
+		cancel: function(id){
+
+			var nombre = this.get('model.nombre');
+			var apellidoPaterno = this.get('model.apellidoPaterno');
+			var email = this.get('model.email');
+			var telefono = this.get('model.telefono');
+			var numeroDelServicio = this.get('model.numeroDelServicio');
+
+			var self = this;
+
+			this.store.findRecord('potentialclient', id).then(function(potentialclient){//busqueda del valor
+					console.log(id);
+					potentialclient.set('nombre', nombre);
+					potentialclient.set('apellidoPaterno', apellidoPaterno);
+					potentialclient.set('email', email);
+					potentialclient.set('telefono', telefono);
+					potentialclient.set('numeroDelServicio', numeroDelServicio);
+
+				if(nombre == undefined || nombre == "" || apellidoPaterno == undefined || apellidoPaterno == "" || email == undefined || email == "" || telefono == undefined || telefono == "" || numeroDelServicio == undefined || numeroDelServicio == ""){
             		window.swal({
                 		title: 'Error!',
                     	text: 'Faltan datos',
@@ -61,8 +78,7 @@ export default Controller.extend({
 				else{
             		self.transitionToRoute('potentialclient');
             	}
-        }*/
-
+        	});//busqueda del valor
+		}
 	}
-
 });

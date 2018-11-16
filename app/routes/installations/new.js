@@ -7,5 +7,6 @@ export default Route.extend({
             return this.transitionTo('login');
           }
         });
-    }
+      },
+    
 });
