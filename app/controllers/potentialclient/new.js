@@ -26,18 +26,36 @@ export default Controller.extend({
 			var telefono = this.get('telefono');
 			var numeroDelServicio = this.get('numeroDelServicio');
 			var encuesta = this.get('encuesta');
+			var self = this;
 
-			var newPotentialClient = this.store.createRecord('potentialclient', {
-				nombre: nombre,
-				apellidoPaterno: apellidoPaterno,
-				apellidoMaterno: apellidoMaterno,
-				email: email,
-				telefono: telefono,
-				numeroDelServicio: numeroDelServicio,
-				encuesta: encuesta,
-			});
+            if(nombre != undefined || apellidoPaterno != undefined || apellidoMaterno != undefined || email != undefined || telefono != undefined || numeroDelServicio != undefined || encuesta != undefined){
+				var newPotentialClient = self.store.createRecord('potentialclient', {
+						nombre: nombre,
+						apellidoPaterno: apellidoPaterno,
+						apellidoMaterno: apellidoMaterno,
+						email: email,
+						telefono: telefono,
+						numeroDelServicio: numeroDelServicio,
+						encuesta: encuesta,
+					});
 
-			newPotentialClient.save();
+				newPotentialClient.save().then(()=>{
+                	window.swal({
+                		title: 'Listo!',
+                		text: 'Cliente Potencial creado correctamente',
+                		confirmButtonText: 'OK',
+                		type: 'success'
+                	});
+            	});
+			}
+			else{
+				window.swal({
+                	title: 'Error!',
+                    text: 'Faltan datos',
+                    confirmButtonText: 'OK',
+                    type: 'error'
+                });
+			}
 		}
 
 	}
