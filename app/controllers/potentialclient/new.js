@@ -18,6 +18,7 @@ export default Controller.extend({
 		updateValue: function(value){
             this.set('numeroDelServicio', value);
         },
+
 		addPotentialClient: function(){
 			var nombre = this.get('nombre');
 			var apellidoPaterno = this.get('apellidoPaterno');
@@ -26,19 +27,51 @@ export default Controller.extend({
 			var telefono = this.get('telefono');
 			var numeroDelServicio = this.get('numeroDelServicio');
 			var encuesta = this.get('encuesta');
+			var self = this;
 
-			var newPotentialClient = this.store.createRecord('potentialclient', {
-				nombre: nombre,
-				apellidoPaterno: apellidoPaterno,
-				apellidoMaterno: apellidoMaterno,
-				email: email,
-				telefono: telefono,
-				numeroDelServicio: numeroDelServicio,
-				encuesta: encuesta,
-			});
+            if(nombre == undefined || nombre == "" || apellidoPaterno == undefined || apellidoPaterno == "" || email == undefined || email == "" || telefono == undefined || telefono == "" || numeroDelServicio == undefined || numeroDelServicio == ""){
+            	window.swal({
+                	title: 'Error!',
+                    text: 'Faltan datos',
+                    confirmButtonText: 'OK',
+                    type: 'error'
+                });
+			}
+			else{
+				var newPotentialClient = self.store.createRecord('potentialclient', {
+						nombre: nombre,
+						apellidoPaterno: apellidoPaterno,
+						apellidoMaterno: apellidoMaterno,
+						email: email,
+						telefono: telefono,
+						numeroDelServicio: numeroDelServicio,
+						encuesta: encuesta,
+					});
 
-			newPotentialClient.save();
-		}
+				newPotentialClient.save().then(()=>{
+                	window.swal({
+                		title: 'Listo!',
+                		text: 'Cliente Potencial creado correctamente',
+                		confirmButtonText: 'OK',
+                		type: 'success'
+                	});
+            	});
+			}
+		},
+
+		cancel: function(){
+            var self = this;
+            this.setProperties({
+                nombre: "",
+                apellidoPaterno : "",
+                apellidoMaterno: "",
+                email: "",
+                telefono: "",
+                numeroDelServicio: "",
+                encuesta: "",
+            })
+            self.transitionToRoute('potentialclient');
+        }
 
 	}
 

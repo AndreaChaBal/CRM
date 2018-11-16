@@ -2,12 +2,8 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Agregar Cliente Potencial</h1>
         <div class="button-container">
-            {{#link-to 'potentialclient'}}
-                <button {{action 'addPotentialClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Agregar </button>
-            {{/link-to}}
-            {{#link-to 'potentialclient'}}
-                <button class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
-            {{/link-to}}
+            <button {{action 'addPotentialClient' model.id}} class="btn btn-primary myButton"><i class="fas fa-check"></i> Agregar </button>
+            <button {{action 'cancel'}} class="btn btn-primary myButton"><i class="fas fa-times"></i> Cancelar</button>
         </div>
     </div>
 
@@ -26,7 +22,7 @@
             </div> 
             <div class="col-md-4 col-sm-4">
                 <strong><label>Apellido materno</label></strong>
-                {{input type="text" class="form-control" value=apellidoMaterno required=true}}
+                {{input type="text" class="form-control" value=apellidoMaterno}}
             </div>
         </div>
 
@@ -37,7 +33,7 @@
             </div>
             <div class="col-md-4 col-sm-4">
                 <strong><label>Teléfono</label></strong>
-                {{input type="text" class="form-control" value=telefono}}
+                {{input type="text" class="form-control" value=telefono required=true}}
             </div>
         </div>
             
@@ -49,6 +45,7 @@
              <div class="col-md-4 col-sm-4">
                 <strong><label>Numero del Servicio</label></strong>
                 <select name="numeroDelServicio" class="form-control" onchange={{action "updateValue" value="target.value"}}>
+                    <option value="default">-----</option>
                     <option value="1">Servicio 01</option>
                     <option value="2">Servicio 02</option>
                     <option value="3">Servicio 03</option>
@@ -66,6 +63,5 @@
                 {{input type="text" class="form-control" value=encuesta}}
             </div>
         </div>
-
     </form>
 </div>
