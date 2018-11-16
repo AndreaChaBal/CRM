@@ -55,6 +55,7 @@ export default Controller.extend({
                 		confirmButtonText: 'OK',
                 		type: 'success'
                 	});
+                    self.transitionToRoute('potentialclient');
             	});
 			}
 		},
