@@ -90,6 +90,24 @@ export default Controller.extend({
                     secondaryApp.auth().signOut();
                     self.transitionToRoute('clients');
                 });
+            }).catch(function(error){
+                console.log(error);
+                if(error.code == "auth/invalid-email"){
+                    window.swal({
+                        title: 'Error!',
+                        text: 'Email inválido',
+                        confirmButtonText: 'OK',
+                        type: 'error'
+                      });
+                }
+                if(error.code == "auth/email-already-in-use"){
+                    window.swal({
+                        title: 'Error!',
+                        text: 'Este email ya ha sido registrado previamente',
+                        confirmButtonText: 'OK',
+                        type: 'error'
+                      });
+                }
             });
         }
         },

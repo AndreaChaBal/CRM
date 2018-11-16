@@ -31,7 +31,7 @@
 
                     <tr>
                         <td>{{client.nombre}} {{client.apellidoPaterno}} {{client.apellidoMaterno}}</td>
-                        <td>{{client.fechaInstalacion}}</td>
+                        <td>{{format-date client.fechaInstalacion}}</td>
                         <td>{{client.horaInstalacion}}</td>
                         {{#link-to 'installations.new' client.id}}
                             <center><button class="btn-danger">Cancelar</button></center>
