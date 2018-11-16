@@ -37,8 +37,8 @@ export default Controller.extend({
                 newPayment.save().then(function(){
                     myClient.save().then(()=>{
                         window.swal({
-                        title: 'Listo!',
-                        text: 'Pago creado correctamente. \n Cliente: ' + myClient.nombre,
+                        title: 'Listo! Pago creado correctamente',
+                        text: 'Cliente: ' + myClient.nombre + " " + myClient.apellidoPaterno,
                         confirmButtonText: 'OK',
                         type: 'success'
                     });
