@@ -51,7 +51,7 @@ export default Controller.extend({
                      type: 'error'
                    });
             }
-            else
+            else {
             auth.createUserWithEmailAndPassword(email, password)
         .then((userResponse)=>{
             let myService = self.store.peekRecord('service', this.get('servicioContratado'));
@@ -87,6 +87,7 @@ export default Controller.extend({
                     self.transitionToRoute('clients');
                 });
             });
+        }
         },
         cancel: function(){
             var self = this;

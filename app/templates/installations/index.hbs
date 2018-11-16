@@ -1,0 +1,57 @@
+<div class="contenedor-principal" style="margin: 20px 50px">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Fechas de instalación</h1>
+        <div class="button-container">
+            {{#link-to 'dashboard'}}
+                <button class="btn btn-primary myButton"><i class="fas fa-arrow-left"></i> Volver al dashboard</button>
+            {{/link-to}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <input class="form-control" id="input-search" type="text" placeholder="Buscar">
+        </div>
+        <div class="col-md-6 col-sm-6"></div>
+    </div>
+
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Fecha de pago</th>
+                <th>Hora</th>
+                <th>Cancelar</th>
+            </tr>
+        </thead>
+        <tbody id="table-id">
+            {{#each model as |client|}}
+
+                    <tr>
+                        <td>{{client.nombre}} {{client.apellidoPaterno}} {{client.apellidoMaterno}}</td>
+                        <td>{{format-date client.fechaInstalacion}}</td>
+                        <td>{{client.horaInstalacion}}</td>
+                        {{#link-to 'installations.new' client.id}}
+                            <center><button class="btn-danger">Cancelar</button></center>
+                        {{/link-to}} 
+                    </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            $("#input-search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#table-id tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+</div>
