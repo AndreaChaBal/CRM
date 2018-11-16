@@ -18,6 +18,7 @@ export default Controller.extend({
 		updateValue: function(value){
             this.set('numeroDelServicio', value);
         },
+
 		addPotentialClient: function(){
 			var nombre = this.get('nombre');
 			var apellidoPaterno = this.get('apellidoPaterno');
@@ -28,7 +29,15 @@ export default Controller.extend({
 			var encuesta = this.get('encuesta');
 			var self = this;
 
-            if(nombre != undefined || apellidoPaterno != undefined || apellidoMaterno != undefined || email != undefined || telefono != undefined || numeroDelServicio != undefined || encuesta != undefined){
+            if(nombre == undefined || nombre == "" || apellidoPaterno == undefined || apellidoPaterno == "" || email == undefined || email == "" || telefono == undefined || telefono == "" || numeroDelServicio == undefined || numeroDelServicio == ""){
+            	window.swal({
+                	title: 'Error!',
+                    text: 'Faltan datos',
+                    confirmButtonText: 'OK',
+                    type: 'error'
+                });
+			}
+			else{
 				var newPotentialClient = self.store.createRecord('potentialclient', {
 						nombre: nombre,
 						apellidoPaterno: apellidoPaterno,
@@ -48,15 +57,21 @@ export default Controller.extend({
                 	});
             	});
 			}
-			else{
-				window.swal({
-                	title: 'Error!',
-                    text: 'Faltan datos',
-                    confirmButtonText: 'OK',
-                    type: 'error'
-                });
-			}
-		}
+		},
+
+		cancel: function(){
+            var self = this;
+            this.setProperties({
+                nombre: "",
+                apellidoPaterno : "",
+                apellidoMaterno: "",
+                email: "",
+                telefono: "",
+                numeroDelServicio: "",
+                encuesta: "",
+            })
+            self.transitionToRoute('potentialclient');
+        }
 
 	}
 
