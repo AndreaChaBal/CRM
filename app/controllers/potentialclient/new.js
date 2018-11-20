@@ -9,6 +9,10 @@ export default Controller.extend({
             this.set('numeroDelServicio', value);
         },
 
+		updateListen: function(value){
+            this.set('encuesta', value);
+		},
+		
 		addPotentialClient: function(){
 			var nombre = this.get('nombre');
 			var apellidoPaterno = this.get('apellidoPaterno');

@@ -4,14 +4,22 @@ export default Controller.extend({
 
 	actions: {
 
+		updateValue: function(value){
+            this.set('numeroDelServicio', value);
+        },
+
+		updateListen: function(value){
+            this.set('encuesta', value);
+		},
+
 		editPotentialClient: function(id){
 			var nombre = this.get('model.nombre');
 			var apellidoPaterno = this.get('model.apellidoPaterno');
 			var apellidoMaterno = this.get('model.apellidoMaterno');
 			var email = this.get('model.email');
 			var telefono = this.get('model.telefono');
-			var numeroDelServicio = this.get('model.numeroDelServicio');
-			var encuesta = this.get('model.encuesta');
+			var numeroDelServicio = this.get('numeroDelServicio');
+			var encuesta = this.get('encuesta');
 
 			var self = this;
 
@@ -22,10 +30,13 @@ export default Controller.extend({
 					potentialclient.set('apellidoMaterno', apellidoMaterno);
 					potentialclient.set('email', email);
 					potentialclient.set('telefono', telefono);
-					potentialclient.set('numeroDelServicio', numeroDelServicio);
+					if(numeroDelServicio != undefined){
+						potentialclient.set('numeroDelServicio', numeroDelServicio);
+					}
+					if(encuesta != undefined){
 					potentialclient.set('encuesta', encuesta);
-
-				if(nombre == undefined || nombre == "" || apellidoPaterno == undefined || apellidoPaterno == "" || email == undefined || email == "" || telefono == undefined || telefono == "" || numeroDelServicio == undefined || numeroDelServicio == ""){
+					}
+				if(nombre == undefined || nombre == "" || apellidoPaterno == undefined || apellidoPaterno == "" || apellidoMaterno == undefined || apellidoMaterno == "" || email == undefined || email == "" || telefono == undefined || telefono == ""){
             		window.swal({
                 		title: 'Error!',
                     	text: 'Faltan datos',

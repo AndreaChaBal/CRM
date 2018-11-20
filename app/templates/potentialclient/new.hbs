@@ -60,7 +60,13 @@
         <div class="row" style="padding: 10px">
              <div class="col-md-4 col-sm-4">
                 <strong><label>Donde escucho del servicio:</label></strong>
-                {{input type="text" class="form-control" value=encuesta}}
+                <select name="dondeEscucho" class="form-control" onchange={{action "updateListen" value="target.value"}}>
+                    <option value="default">-----</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="radio">Radio</option>
+                    <option value="amigo">Amigo</option>
+                    <option value="otro">Otro</option>
+                </select>
             </div>
         </div>
     </form>

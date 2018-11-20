@@ -18,10 +18,10 @@
       {{/link-to}}
 	<nav class="nav nav-masthead justify-content-center">
     {{#link-to 'services'}}
-        <a class="nav-link">Servicios</a>
+        <a style="color:white;" class="nav-link">Servicios</a>
       {{/link-to}}
       {{#link-to 'contacto'}}
-        <a class="nav-link">Contacto</a>
+        <a style="color:white;" class="nav-link">Contacto</a>
       {{/link-to}}
 	  {{#if session.isAuthenticated}}
       <a style="color:gray; cursor: pointer;" class="nav-link" {{action "redirect" preventDefault=false}}>{{model.loggedStatus.loggedPerm}} : {{model.loggedStatus.loggedAs}}</a>
@@ -36,6 +36,17 @@
   {{outlet}}
 {{/if}}
 </body>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+  a: hover{
+    color: white !important;
+    text-decoration : none !important;
+  }
+</style>
+
 </html>
 
 
